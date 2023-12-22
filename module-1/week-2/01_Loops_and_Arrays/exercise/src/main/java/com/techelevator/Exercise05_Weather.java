@@ -25,7 +25,14 @@ public class Exercise05_Weather {
 	belowFreezing([]) → 0
     */
 	public int belowFreezing(int[] dailyHighs) {
-		return 0;
+        int sum = 0;
+
+        for (int i = 0; i < dailyHighs.length; i++) {
+            if (dailyHighs[i] <= FREEZING_TEMPERATURE) {
+                sum++;
+            }
+        }
+		return sum;
 	}
 
     /*
@@ -43,7 +50,14 @@ public class Exercise05_Weather {
 	hottestDay([55]) → 55
     */
     public int hottestDay(int[] dailyHighs) {
-        return 0;
+        int highestTemperature = -1000;
+
+        for (int i = 0; i < dailyHighs.length; i++) {
+            if (dailyHighs[i] > highestTemperature) {
+                highestTemperature = dailyHighs[i];
+            }
+        }
+        return highestTemperature;
     }
 
     /*
@@ -61,6 +75,16 @@ public class Exercise05_Weather {
 	fixTemperatures([]) → []
      */
     public int[] fixTemperatures(int[] temperatures) {
-        return new int[] {};
+        int[] fixedTemperaturesInFahrenheit = new int[temperatures.length];
+
+        for (int i = 0; i < temperatures.length; i++) {
+            //If element index is even, then perform addition
+            if (i % 2 == 0) {
+                fixedTemperaturesInFahrenheit[i] = (temperatures[i] + 2);
+            } else {
+                fixedTemperaturesInFahrenheit[i] = temperatures[i];
+            }
+        }
+        return fixedTemperaturesInFahrenheit;
     }
 }

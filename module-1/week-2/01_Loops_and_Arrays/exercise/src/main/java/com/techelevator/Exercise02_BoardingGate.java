@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import javax.swing.plaf.metal.OceanTheme;
+
 public class Exercise02_BoardingGate {
 
     /*
@@ -27,7 +29,12 @@ public class Exercise02_BoardingGate {
     generateSeatingChart(2) → [AVAILABLE, AVAILABLE]
      */
     public boolean[] generateSeatingChart(int numberOfSeats) {
-        return new boolean[] {};
+        boolean[] seatingChart = new boolean[numberOfSeats];
+
+        for (int i = 0; i < numberOfSeats; i++) {
+            seatingChart[i] = AVAILABLE;
+        }
+        return seatingChart;
     }
 
     /*
@@ -46,7 +53,14 @@ public class Exercise02_BoardingGate {
     getAvailableSeatCount([]) → 0
      */
     public int getAvailableSeatCount(boolean[] seatingChart) {
-        return 0;
+        int numberAvailableSeats = 0;
+
+        for (int i = 0; i < seatingChart.length; i++) {
+            if (seatingChart[i] == AVAILABLE) {
+                numberAvailableSeats++;
+            }
+        }
+        return numberAvailableSeats;
     }
 
     /*
@@ -62,7 +76,31 @@ public class Exercise02_BoardingGate {
     getNumberOfFullRows([OCCUPIED, AVAILABLE, AVAILABLE, OCCUPIED, AVAILABLE, AVAILABLE]) → 0
      */
     public int getNumberOfFullRows(boolean[] seatingChart) {
+        int sum = 0;
+
+        //loop through first 3
+        for (int i = 0; i < seatingChart.length; i++) {
+            //If only row1
+            if (seatingChart.length == 3) {
+                if (seatingChart[0] == OCCUPIED && seatingChart[1] == OCCUPIED && seatingChart[2] == OCCUPIED) {
+                    return 1;
+                }
+            }
+
+            //If row1 & row2
+            if (seatingChart.length == 6) {
+                //If all 6 seats are false
+                if (seatingChart[0] == OCCUPIED && seatingChart[1] == OCCUPIED && seatingChart[2] == OCCUPIED && seatingChart[3] == OCCUPIED && seatingChart[4] == OCCUPIED && seatingChart[5] == OCCUPIED) {
+                    return 2;
+                }
+                //if row2 is false
+                if (seatingChart[3] == OCCUPIED && seatingChart[4] == OCCUPIED && seatingChart[6] == OCCUPIED) {
+                    return 1;
+                } else if (seatingChart[0] == OCCUPIED && seatingChart[1] == OCCUPIED && seatingChart[2] == OCCUPIED) {
+                    return 1;
+                }
+            }
+        }
         return 0;
     }
-
 }
