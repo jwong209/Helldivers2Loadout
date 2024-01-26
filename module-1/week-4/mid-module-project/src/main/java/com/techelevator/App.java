@@ -25,8 +25,8 @@ public class App {
     int primaryField = 0;   // created for Challenge; pass into displaySearchResults() and sortSearchResults()
     List<String> newSortedTitles = new ArrayList<>();
     List<String> newSortedAuthors = new ArrayList<>();
-    List<Integer> newSortedPublishedYears = new ArrayList<>();
-    List<BigDecimal> newSortedPrices = new ArrayList<>();
+    List<String> newSortedPublishedYears = new ArrayList<>(); //just changed from Integer to String
+    List<String> newSortedPrices = new ArrayList<>();
     //  ------------------------------------------------------------------------------------------------------
 
     public static void main(String[] args) {
@@ -212,14 +212,20 @@ public class App {
             Collections.sort(newSortedAuthors);
         } else if (primaryField == PUBLISHED_YEAR_FIELD) {
             for (Integer entry : indexes) {
-                Integer sortedYear = publishedYears.get(entry);
-                newSortedPublishedYears.add(sortedYear);
+                newSortedPublishedYears.add(publishedYears.get(entry) + ": " + titles.get(entry) + ": " + authors.get(entry) + ": " + prices.get(entry));
             }
             Collections.sort(newSortedPublishedYears);
         } else {
+//            for (Integer entry : indexes) {
+//                BigDecimal sortedPrice = prices.get(entry);
+//                newSortedPrices.add(sortedPrice);
+//            }
             for (Integer entry : indexes) {
-                BigDecimal sortedPrice = prices.get(entry);
-                newSortedPrices.add(sortedPrice);
+                BigDecimal price = prices.get(entry);
+                String title = titles.get(entry);
+                String author = authors.get(entry);
+                Integer publishedYear = publishedYears.get(entry);
+                newSortedPrices.add(price + ": " + title + ": " + author + ": " + publishedYear);
             }
             Collections.sort(newSortedPrices);
         }
@@ -247,13 +253,16 @@ public class App {
             }
         }
         if (primaryField == PUBLISHED_YEAR_FIELD) {
-            for (Integer year : newSortedPublishedYears) {
-                System.out.println(year + ": " + titles.get(publishedYears.indexOf(year)) + ": " + authors.get(publishedYears.indexOf(year)) + ": " + prices.get(publishedYears.indexOf(year)));
+            for (String year : newSortedPublishedYears) {
+//                System.out.println(year + ": " + titles.get(publishedYears.indexOf(year)) + ": " + authors.get(publishedYears.indexOf(year)) + ": " + prices.get(publishedYears.indexOf(year)));
+                System.out.println(year);
             }
+
         }
         if (primaryField == PRICE_FIELD){
-            for (BigDecimal price : newSortedPrices) {
-                System.out.println(price + ": " + titles.get(prices.indexOf(price)) + ": " + authors.get(prices.indexOf(price)) + ": " + publishedYears.get(prices.indexOf(price)));
+            for (String price : newSortedPrices) {
+//                System.out.println(price + ": " + titles.get(prices.indexOf(price)) + ": " + authors.get(prices.indexOf(price)) + ": " + publishedYears.get(prices.indexOf(price)));
+                System.out.println(price);
             }
         }
 
@@ -283,7 +292,7 @@ public class App {
         for (Integer index : indexes) {
             System.out.println(titles.get(index) + ": " + authors.get(index) + ": " + publishedYears.get(index) + ": " + prices.get(index));
         }
-         */
+ */
         newSortedTitles.clear();
         newSortedAuthors.clear();
         newSortedPrices.clear();
@@ -429,7 +438,7 @@ public class App {
             }
         }
 
-//        primaryField = PRICE_FIELD;  // Challenge
+        primaryField = PRICE_FIELD;  // Challenge
         return foundIndexes;
     }
 
