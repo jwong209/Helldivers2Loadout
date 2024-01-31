@@ -1,0 +1,24 @@
+<vacation>
+<destination>
+The Grand Canyon
+</destination>
+<dates>
+<departOn>
+2023-03-14
+</departOn>
+<returnOn>
+2023-03-21
+</returnOn>
+</dates>
+<travelers>
+<adultCount>
+3
+</adultCount>
+<childCount>
+2
+</childCount>
+<seniorCount>
+0
+</seniorCount>
+</travelers>
+</vacation>
