@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Random;
 
 public class Competitor {
     private BufferedImage image;
@@ -8,7 +9,7 @@ public class Competitor {
      * TODO: Add some variables to keep track of the
      *  competitor's position
      */
-
+    private int x = 0;
 
     public Competitor(String imageURL){
         image = Racetrack.loadImage(imageURL);
@@ -19,6 +20,8 @@ public class Competitor {
          * TODO: Move the competitor some distance each game frame
          *  - for random distance: new Random().nextInt(10);
          */
+        int randomDistance = new Random().nextInt(10);
+        this.x += randomDistance;
 
     }
 
