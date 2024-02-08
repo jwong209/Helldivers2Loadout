@@ -1,0 +1,9 @@
+Document the bugs you found, in this format:
+
+1. [Class where bug was found]
+[Description of bug]
+[What you did to fix it and get your tests to pass]
+
+---------------------------------------------------
+
+
