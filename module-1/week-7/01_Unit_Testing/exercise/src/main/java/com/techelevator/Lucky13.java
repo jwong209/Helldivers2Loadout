@@ -12,7 +12,7 @@ public class Lucky13 {
 	public boolean getLucky(int[] nums) {
 		if (nums != null) {
 			for (int i = 0; i < nums.length; i++) {
-				if (nums[i] == 1 && nums[i] == 3) {
+				if (nums[i] == 1 || nums[i] == 3) {
 					return false;
 				}
 			}

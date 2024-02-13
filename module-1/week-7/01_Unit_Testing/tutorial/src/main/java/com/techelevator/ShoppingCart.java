@@ -32,7 +32,10 @@ public class ShoppingCart {
 		// Apply the tax rate to the price of all the taxable items
 		double tax = 0.0;
 		for (Purchasable item : itemsToBuy) {
-			tax += item.getPrice() * this.taxRate;
+			if (item.isTaxable()) {
+				tax += item.getPrice() * this.taxRate;
+			}
+
 		}
 		return tax;
 	}

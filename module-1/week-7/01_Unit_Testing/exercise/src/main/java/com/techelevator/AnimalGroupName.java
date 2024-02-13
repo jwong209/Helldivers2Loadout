@@ -50,8 +50,8 @@ public class AnimalGroupName {
      */
     public String getHerd(String animalName) {
 
-        if (animalName != null && animals.containsKey(animalName)) {
-            return animals.get(animalName);
+        if (animalName != null && animals.containsKey(animalName.toLowerCase())) {
+            return animals.getOrDefault(animalName.toLowerCase(),"unknown");
         } else {
             return "unknown";
         }

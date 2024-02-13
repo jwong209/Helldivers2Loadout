@@ -23,7 +23,7 @@ public class WordCount {
 
 		if (words != null) {
 			for (String word : words) {
-				if (!output.containsValue(word)) {
+				if (!output.containsKey(word)) {
 					output.put(word, 1);
 				} else {
 					output.put(word, output.get(word) + 1);

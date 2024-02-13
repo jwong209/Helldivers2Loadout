@@ -13,11 +13,11 @@ public class FrontTimes {
 		String result = "";
 		if (str != null) {
 			if (str.length() <= 3) {
-				for (int i = 0; i < n-1; i++) {
+				for (int i = 0; i < n; i++) {
 					result += str;
 				}
 			} else {
-				for (int i = 0; i < n-1; i++) {
+				for (int i = 0; i < n; i++) {
 					result += str.substring(0, 3);
 				}
 			}
