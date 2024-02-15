@@ -50,12 +50,12 @@ In the "if" conditional, the C-style For Loop had incorrect conditions.
 "i < n - 1" was changed to "i < n" so that the proper number of loops would occur.
 
 Before:
-if (str.length() <= 3) {
-    for (int i = 0; i < n - 1; i++) {
+    if (str.length() <= 3) {
+        for (int i = 0; i < n - 1; i++) {
 
 After:
-if (str.length() <= 3) {
-    for (int i = 0; i < n; i++) {
+    if (str.length() <= 3) {
+        for (int i = 0; i < n; i++) {
 
 ---------------------------------------------------
 
@@ -71,12 +71,12 @@ In the "else" conditional, the C-style For Loop had incorrect conditions.
 "i < n - 1" was changed to "i < n" so that the proper number of loops would occur.
 
 Before:
-} else {
-    for (int i = 0; i < n - 1; i++) {
+    } else {
+        for (int i = 0; i < n - 1; i++) {
 
 After:
-} else {
-    for (int i = 0; i < n; i++) {
+    } else {
+        for (int i = 0; i < n; i++) {
 
 ---------------------------------------------------
 
@@ -85,6 +85,7 @@ Less20
 
 [Description of bug]
 For testing if a number is one less than a multiple of 20, the tests would not pass.
+Having "this.n" incorrectly tries to access the parameter n from a class.
 
 [What you did to fix it and get your tests to pass]
 For the boolean statement, I changed "this.n" to simply "n".
@@ -101,6 +102,7 @@ Less20
 
 [Description of bug]
 For testing if a number is two less than a multiple of 20, the tests would not pass.
+Having "this.n" incorrectly tries to access the parameter n from a class.
 
 [What you did to fix it and get your tests to pass]
 For the boolean statement, I changed "this.n" to simply "n".
@@ -134,16 +136,17 @@ WordCount
 
 [Description of bug]
 getCount() does not correctly apply the sum of word instances found within the array.
+Counts first instance of each element but does not update count.
 
 [What you did to fix it and get your tests to pass]
 Within the "if" statement of the For-Each Loop, the condition was "!output.containsValue(word)".
-This is incorrect since the key (not value)is what must be checked.
+This is incorrect since the key (not value) is what must be checked.
 
 Before:
-if (!output.containsValue(word)) {
+    if (!output.containsValue(word)) {
 
 After:
-if (!output.containsKey(word)) {
+    if (!output.containsKey(word)) {
 
 
 

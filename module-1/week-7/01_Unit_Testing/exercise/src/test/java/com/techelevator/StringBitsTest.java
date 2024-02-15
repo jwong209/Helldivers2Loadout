@@ -28,4 +28,18 @@ public class StringBitsTest {
         Assert.assertEquals("Hello", actual);
     }
 
+    @Test
+    public void getBits_should_return_emptyString_when_null_is_passed() {
+        String actual = stringBitsTest.getBits(null);
+
+        Assert.assertEquals("", actual);
+    }
+
+    @Test
+    public void getBits_should_return_emptyString_when_emptyString_is_passed() {
+        String actual = stringBitsTest.getBits("");
+
+        Assert.assertEquals("", actual);
+    }
+
 }

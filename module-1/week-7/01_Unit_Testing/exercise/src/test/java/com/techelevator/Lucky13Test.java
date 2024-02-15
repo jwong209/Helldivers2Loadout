@@ -32,4 +32,25 @@ public class Lucky13Test {
 //        Assert.assertEquals(false, actual);
     }
 
+    @Test
+    public void getLucky_should_return_true_when_array_11_33_131_is_passed() {
+        boolean actual = lucky13Test.getLucky(new int[]{11, 33, 131});
+
+        Assert.assertTrue(actual);
+    }
+
+    @Test
+    public void getLucky_should_return_true_when_empty_array_is_passed() {
+        boolean actual = lucky13Test.getLucky(new int[]{});
+
+        Assert.assertTrue(actual);
+    }
+
+    @Test
+    public void getLucky_should_return_true_when_null_is_passed() {
+        boolean actual = lucky13Test.getLucky(null);
+
+        Assert.assertTrue(actual);
+    }
+
 }

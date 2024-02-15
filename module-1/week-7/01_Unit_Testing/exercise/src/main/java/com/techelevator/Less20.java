@@ -16,41 +16,4 @@ public class Less20 {
         return oneLessThanMultipleOf20 || twoLessThanMultipleOf20;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    int n;
 }

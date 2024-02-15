@@ -11,28 +11,47 @@ public class DateFashionTest {
     @Test
     public void getATable_should_return_2_when_5_and_10_are_passed() {
         // Act
-        dateFashionTest.getATable(5, 10);
+        int actual = dateFashionTest.getATable(5, 10);
+        int expected = 2;
 
         // Assert
-        Assert.assertEquals(2, dateFashionTest.getATable(5, 10));
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void getATable_should_return_0_when_5_and_2_are_passed() {
         // Act
-        dateFashionTest.getATable(5, 2);
+        int actual = dateFashionTest.getATable(5, 2);
+        int expected = 0;
 
         // Assert
-        Assert.assertEquals(0, dateFashionTest.getATable(5, 2));
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void getATable_should_return_1_when_5_and_5_are_passed() {
         // Act
-        dateFashionTest.getATable(5, 5);
+        int actual = dateFashionTest.getATable(5, 5);
+        int expected = 1;
 
         // Assert
-        Assert.assertEquals(1, dateFashionTest.getATable(5, 5));
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getATable_should_return_2_when_10_and_10_are_passed() {
+        int actual = dateFashionTest.getATable(10, 10);
+        int expected = 2;
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getATable_should_return_0_when_0_and_0_are_passed() {
+        int actual = dateFashionTest.getATable(0, 0);
+        int expected = 0;
+
+        Assert.assertEquals(expected, actual);
     }
 
 }

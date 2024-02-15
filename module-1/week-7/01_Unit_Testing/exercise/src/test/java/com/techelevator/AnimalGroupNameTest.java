@@ -7,7 +7,12 @@ import org.junit.Test;
 public class AnimalGroupNameTest {
 
     // Arrange - data is already set in the AnimalGroupName class
-    private AnimalGroupName animalGroupTest = new AnimalGroupName();
+    private AnimalGroupName animalGroupTest;
+
+    @Before                            // practice with Before, probably not necessary for this exercise
+    public void setup() {
+        this.animalGroupTest = new AnimalGroupName();
+    }
 
     @Test
     public void getHerd_should_return_Tower_when_giraffe_is_passed() {
@@ -80,5 +85,26 @@ public class AnimalGroupNameTest {
         // Assert
         Assert.assertEquals("unknown", animalGroupTest.getHerd(null));
     }
+
+    // ------------ post Monday lecture ------------ (test arrays to reduce # of tests)
+    @Test
+    public void getHerd_happy_Path() {
+
+        //Arrange
+        String[] testInputs = {"Rhino", "lIOn", "DOG", "rhino"};
+        String[] expected = {"Crash", "Pride", "Pack", "Crash"};
+
+        for (int i = 0; i < testInputs.length; i++) {
+            String eachTestInput = testInputs[i];
+
+            // Act
+            String actual = animalGroupTest.getHerd(eachTestInput);
+
+            // Assert
+            Assert.assertEquals("Testing input: " + eachTestInput, expected[i], actual);
+
+        }
+    }
+
 
 }

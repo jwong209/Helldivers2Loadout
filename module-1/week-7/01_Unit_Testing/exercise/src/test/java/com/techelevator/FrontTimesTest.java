@@ -9,22 +9,41 @@ public class FrontTimesTest {
 
     @Test
     public void generateString_should_return_ChoCho_when_Chocolate_and_2_are_passed() {
-        frontTimesTest.generateString("Chocolate", 2);
+        String actual = frontTimesTest.generateString("Chocolate", 2);
+        String expected = "ChoCho";
 
-        Assert.assertEquals("ChoCho", frontTimesTest.generateString("Chocolate", 2));
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void generateString_should_return_ChoChoCho_when_Chocolate_and_3_are_passed() {
-        frontTimesTest.generateString("Chocolate", 3);
+        String actual = frontTimesTest.generateString("Chocolate", 3);
+        String expected = "ChoChoCho";
 
-        Assert.assertEquals("ChoChoCho", frontTimesTest.generateString("Chocolate", 3));
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void generateString_should_return_AbcAbcAbc_when_Abc_and_3_are_passed() {
-        frontTimesTest.generateString("Abc", 3);
+        String actual = frontTimesTest.generateString("Abc", 3);
+        String expected = "AbcAbcAbc";
 
-        Assert.assertEquals("AbcAbcAbc", frontTimesTest.generateString("Abc", 3));
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void generateString_should_return_emptyString_when_emptyString_and_3_are_passed() {
+        String actual = frontTimesTest.generateString("", 3);
+        String expected = "";
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void generateString_should_return_threeSpaces_when_singleSpace_and_3_are_passed() {
+        String actual = frontTimesTest.generateString(" ", 3);
+        String expected = "   ";
+
+        Assert.assertEquals(expected, actual);
     }
 }
