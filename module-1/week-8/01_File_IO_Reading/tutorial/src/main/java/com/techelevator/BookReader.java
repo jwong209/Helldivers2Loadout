@@ -27,6 +27,49 @@ public class BookReader {
         /*
         Step 2: Step Two: Open the book file and handle errors
          */
+        File bookFile = new File(filePath);
+
+        int lineCount = 0;
+        boolean inBookText = false;
+
+
+        try (Scanner fileInput = new Scanner(bookFile)) {
+
+            /*
+            Step 3: Create a read loop and process the lines
+            */
+            // Loop until the end of file is reached
+            while (fileInput.hasNextLine()) {
+
+                String lineOfText = fileInput.nextLine();
+
+                /*
+                Step 4: Skip the header information before book content
+                */
+                if (lineOfText.startsWith(BEGIN_MARKER)) {
+                    inBookText = true;
+                    continue;
+                }
+                /*
+                Step 5: Skip the footer information after book content
+                */
+                if (lineOfText.startsWith(END_MARKER)) {
+                    break;
+                }
+
+
+                if (inBookText) {
+                    lineCount++;
+                    System.out.println(lineCount + ": " + lineOfText);
+                }
+
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("The file was not found: " + bookFile.getAbsolutePath());
+        }
+
+        System.out.println("\nFound " + lineCount + " lines of text in " + filePath);
 
     }
 }
