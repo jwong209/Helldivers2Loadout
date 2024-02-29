@@ -93,6 +93,24 @@ public class PracticePart1 {
 	*/
 	public int Q04_carWashPrice(char typeOfWash, boolean isMorning, boolean isWeekend) {
 
+		int priceCarWash = 0;
+
+		if (typeOfWash == 'B') {
+			priceCarWash = 8;
+		} else if (typeOfWash == 'P') {
+			priceCarWash = 10;
+		} else {
+			priceCarWash = 12;
+		}
+
+		if (isMorning) {
+			priceCarWash -= 1;
+		}
+		if (isWeekend) {
+			priceCarWash += 2;
+		}
+		return priceCarWash;
+/*
 		if (typeOfWash == 'B') {
 			if (isMorning && isWeekend) {
 				return 9;
@@ -128,6 +146,8 @@ public class PracticePart1 {
 		}
 
 		return 0;
+		*/
+
 	}
 
 	/*

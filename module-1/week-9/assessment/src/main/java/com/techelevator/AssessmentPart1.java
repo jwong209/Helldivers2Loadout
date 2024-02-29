@@ -13,7 +13,9 @@ public class AssessmentPart1 {
 		 Q01_calculateFraction(5, 2) -> 2.5
 	*/
 	public double Q01_calculateFraction(int numerator, int denominator) {
-		return 0.0;
+
+		double answer = (double)numerator / denominator;
+		return answer;
 	}
 
 	/*
@@ -24,7 +26,8 @@ public class AssessmentPart1 {
 		 Q02_isSumEven(13, 16) -> false
 	*/
 	public boolean Q02_isSumEven(int a, int b) {
-		return false;
+
+		return (a + b) % 2 == 0;
 	}
 
 	/*
@@ -37,7 +40,16 @@ public class AssessmentPart1 {
 		 Q03_moviePrice(21) -> 12
 	*/
 	public int Q03_moviePrice(int age) {
-		return 0;
+
+		int priceTicket = 0;
+
+		if (age <= 12) {  // if child
+			priceTicket = 7;
+		} else {           // else it's adult
+			priceTicket = 12;
+		}
+
+		return priceTicket;
 	}
 
 	/*
@@ -56,7 +68,21 @@ public class AssessmentPart1 {
 		 Q04_moviePriceMatinee(21, true, false) -> 8
 	*/
 	public int Q04_moviePriceMatinee(int age, boolean isBefore5pm, boolean isWeekend) {
-		return 0;
+
+		if (isBefore5pm && !isWeekend) {  // if matinee
+			if (age <= 12) {
+				return 5;
+			} else {
+				return 8;
+			}
+		} else {   					// if non-matinee
+			if (age <= 12) {
+				return 7;
+			} else {
+				return 12;
+			}
+		}
+
 	}
 
 	/*
@@ -69,7 +95,20 @@ public class AssessmentPart1 {
 		 Q05_sumOfOddNumbersBetween(-12, -1) -> -36
 	*/
 	public int Q05_sumOfOddNumbersBetween(int lowestNumber, int highestNumber) {
-		return 0;
+
+		if (highestNumber < lowestNumber) {
+			return 0;
+		}
+
+		int sum = 0;
+
+		for (int i = lowestNumber; i <= highestNumber; i++) {
+			if (i % 2 != 0) {
+				sum += i;
+			}
+		}
+
+		return sum;
 	}
 
 	/*
@@ -84,7 +123,14 @@ public class AssessmentPart1 {
 		 Q06_firstNCharacters("Submarine", 0) -> ""
 	*/
 	public String Q06_firstNCharacters(String originalString, int numCharacters) {
-		return null;
+
+		if (numCharacters > originalString.length()) {
+			return originalString;
+		}
+
+		String substring = originalString.substring(0, numCharacters);
+
+		return substring;
 	}
 
 	/*
@@ -100,8 +146,9 @@ public class AssessmentPart1 {
 		 Q07_spaceReplacer("Stop Wait Listen ", "! ") -> "Stop! Wait! Listen! "
 	*/
 	public String Q07_spaceReplacer(String stringValue, String replaceSpaceWith) {
-		stringValue.replace(" ", replaceSpaceWith);
-		return stringValue;
+//		stringValue.replace(" ", replaceSpaceWith);
+		String answer = stringValue.replace(" ", replaceSpaceWith);   // assign it to variable, return that variable
+		return answer;
 	}
 
 
@@ -118,7 +165,8 @@ public class AssessmentPart1 {
 		 Q08_convertToFahrenheit(100.0) -> 212.0
 	*/
 	public double Q08_convertToFahrenheit(double degreesCelsius) {
-		double degreesFahrenheit = (9 / 5) * degreesCelsius + 32.0;
+//		double degreesFahrenheit = (9 / 5) * degreesCelsius + 32.0;
+		double degreesFahrenheit = (9.0 / 5) * degreesCelsius + 32.0;    // make one of them double
 		return degreesFahrenheit;
 	}
 
@@ -135,7 +183,8 @@ public class AssessmentPart1 {
 		 Q09_convertToCelsius(212.0) -> 100.0
 	*/
 	public double Q09_convertToCelsius(double degreesFahrenheit) {
-		double degreesCelsius = degreesFahrenheit - 32.0 * 5.0 / 9.0;
+//		double degreesCelsius = degreesFahrenheit - 32.0 * 5.0 / 9.0;
+		double degreesCelsius = (degreesFahrenheit - 32.0) * (5.0 / 9.0);  // order of operations
 		return degreesCelsius;
 	}
 
@@ -151,7 +200,17 @@ public class AssessmentPart1 {
 		 Q10_swapFirstAndLastElements([1,2]) -> [2,1]
 	*/
 	public int[] Q10_swapFirstAndLastElements(int[] arrayOfInts) {
-		return arrayOfInts;
+
+		int[] answer = new int[arrayOfInts.length];
+
+		answer[0] = arrayOfInts[arrayOfInts.length - 1];  // first becomes last from arrayOfInts
+		answer[answer.length - 1] = arrayOfInts[0];  // last becomes first from arrayOfInts
+
+		for (int i = 1; i < arrayOfInts.length - 1; i++) {   // ignore first and last spots
+			answer[i] = arrayOfInts[i];
+		}
+
+		return answer;
 	}
 
 	/*
@@ -166,7 +225,18 @@ public class AssessmentPart1 {
 		 Q11_mealCount(["Beef", "Chicken", "Fish", "Tofu", "Tofu", "Fish"]) -> {"Beef": 1, "Chicken": 1, "Fish": 2, "Tofu": 2}
 	*/
 	public Map<String, Integer> Q11_mealCount(String[] mealOrders) {
-		return null;
+
+		Map<String, Integer> answer = new HashMap<>();
+
+		for (String order : mealOrders) {
+			if (!answer.containsKey(order)) {
+				answer.put(order, 1);
+			} else {
+				answer.put(order, answer.get(order) + 1);
+			}
+		}
+
+		return answer;
 	}
 
 }

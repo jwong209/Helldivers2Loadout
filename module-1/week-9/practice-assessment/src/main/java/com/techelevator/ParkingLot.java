@@ -30,6 +30,9 @@ public class ParkingLot {
     // Constructor (should be 3)
     public ParkingLot(String name) {
         this.name = name;
+        numberOfCompactSlots = DEFAULT_NUMBER_OF_COMPACT_SLOTS;
+        numberOfMidsizeSlots = DEFAULT_NUMBER_OF_MIDSIZE_SLOTS;
+        numberOfFullsizeSlots = DEFAULT_NUMBER_OF_FULLSIZE_SLOTS;
     }
 
     public ParkingLot(String name, boolean open, int numberOfCompactSlots, int numberOfMidsizeSlots, int numberOfFullsizeSlots) {
