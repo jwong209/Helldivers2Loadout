@@ -41,7 +41,7 @@ public class LoadoutApp {
             Armor selectedBodyArmor = selectArmor("Body Armor", availableBodyArmor, userInput);
             Armor selectedCape = selectArmor("Cape", availableCapes, userInput);
             Booster selectedBooster = selectBooster(availableBoosters, userInput);
-            Set<Stratagem> selectedStratagems = selectedStratagems(availableStratagems, userInput);
+            Set<Stratagem> selectedStratagems = selectStratagems(availableStratagems, userInput);
 
             Loadout customLoadout = new Loadout(loadoutName, selectedPrimary, selectedSecondary, selectedGrenade, selectedHelmet, selectedBodyArmor, selectedCape, selectedBooster, selectedStratagems);
             loadouts.add(customLoadout);
@@ -102,21 +102,48 @@ public class LoadoutApp {
         return availableBoosters.get(selectionInt - 1);
     }
 
-    private static Set<Stratagem> selectedStratagems(List<Stratagem> stratagemList, Scanner scanner) {
+    private static Set<Stratagem> selectStratagems(List<Stratagem> stratagemList, Scanner scanner) {
 
-        System.out.println("Select up to ");
+        Set<Stratagem> selectedStratagemSet = new HashSet<>();
+        int stratagemsSelected = 0;
 
+        System.out.println("Select 4 stratagems");
+
+        // Display all available stratagems from the list passed in
         for (int i = 0; i < stratagemList.size(); i++) {
             System.out.println((i + 1) + ". " + stratagemList.get(i).getName());
         }
 
-        for (int i = 0; i < 4; i++) {
+        // Prompt 4x to make selection
+        while (stratagemsSelected < 4) {
+//            for (int i = 0; i < stratagemList.size(); i++) {                    // print each # and name
+//                System.out.println((i + 1) + ". " + stratagemList.get(i).getName());
+//            }
 
+            System.out.println("Select a stratagem from the list (enter corresponding number)");
+            String userInput = scanner.nextLine();
+            int userSelection = Integer.parseInt(userInput);
 
+            try {
+                if (userSelection > 0 && userSelection <= stratagemList.size()) { // range --> 1 to (whatever .size()) is due to numbered list from earlier
+                    Stratagem currentStratagem = stratagemList.get(userSelection - 1);
+                    if (selectedStratagemSet.contains(currentStratagem)) {
+                        System.out.println("Already selected");
+                    } else {
+                        selectedStratagemSet.add(currentStratagem);
+                        stratagemsSelected++;
+                        System.out.println("Stratagem selected");
+                    }
+                } else {                           // condition when number entered is out of range
+                    System.out.println("Please enter number between 1 and " + stratagemList.size());
+                }
+            } catch (NumberFormatException e) {   // condition when number is not entered
+                System.out.println("Not a number. Please enter a number.");
+            }
 
         }
 
-
+        return selectedStratagemSet;
     }
 
 
