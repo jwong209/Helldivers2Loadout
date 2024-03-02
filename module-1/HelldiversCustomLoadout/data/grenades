@@ -1,4 +1,5 @@
-G-12 High Explosive Standard Grenade|400|004|007|3.5 Seconds
-G-6 Frag Grenade|250|003|008|2.4 Seconds
-G-16 Impact Grenade|400|004|007|0 Seconds
-G-3 Smoke Grenade|000|000|005|2.4 Seconds
+G-12 High Explosive|Standard Grenade|400|004|007|3.5 Seconds
+G-6 Frag|Standard Grenade|250|003|008|2.4 Seconds
+G-16 Impact|Special Grenade|400|004|007|0 Seconds
+G-3 Smoke|Special Grenade|000|000|005|2.4 Seconds
+G-10 Incendiary|Special Grenade|150|003|007|2.9 Seconds

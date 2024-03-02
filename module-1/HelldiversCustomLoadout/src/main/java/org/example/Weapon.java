@@ -4,8 +4,8 @@ public class Weapon{
 
     /*
     damage, capacity, recoil, fireRate all start with zero. In Java, integer literal with 0 beginning interpreted as base 8.
-    octal ---> decimal
-        01 ---> 1
+           octal ---> decimal
+              01 ---> 1
         But: 010 ---> 8
     so maybe interpret these values as String instead of int
      */
@@ -15,14 +15,16 @@ public class Weapon{
     private String recoil;
     private String fireRate;
     private String weaponTraits;
+    private String subType;
 
-    public Weapon(String name, String damage, String capacity, String recoil, String fireRate, String weaponTraits) {
+    public Weapon(String name, String damage, String capacity, String recoil, String fireRate, String weaponTraits, String subType) {
         this.name = name;
         this.damage = damage;
         this.capacity = capacity;
         this.recoil = recoil;
         this.fireRate = fireRate;
         this.weaponTraits = weaponTraits;
+        this.subType = subType;
     }
 
     // ----- Getters -----
@@ -51,5 +53,7 @@ public class Weapon{
         return weaponTraits;
     }
 
-
+    public String getSubType() {
+        return subType;
+    }
 }

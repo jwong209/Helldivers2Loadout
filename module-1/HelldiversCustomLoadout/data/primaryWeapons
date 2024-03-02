@@ -1,13 +1,13 @@
-AR-23 Liberator Assault Rifle|055|045|015|640|Light Armor Penetrating
-MP-98 Submachine Gun|050|050|020|1380|Light Armor Penetrating
-SG-8 Punisher Shotgun|360|016|110|080|Light Armor Penetrating, Rounds Reload
-R-63 Diligence Marksman Rifle|112|020|035|350|Light Armor Penetrating
-SMG-37 Defender Submachine Gun|070|045|010|520|Light Armor Penetrating, One Handed
-SG-225 Breaker Shotgun|330|016|030|300|Light Armor Penetrating
-AR-23P Liberator Penetrator Assault Rifle|045|030|019|640|Medium Armor Penetrating
-R-63CS Diligence Counter Sniper Marksman Rifle|128|015|053|350|Light Armor Penetrating
-SG-8s Slugger Shotgun|128|015|053|350|Light Armor Penetrating
-SG-225SP Breaker Spray&Pray Shotgun|144|032|045|300|Light Armor Penetrating
-AR-23E Liberator Explosive Assault Rifle|055|030|029|320|Light Armor Penetrating, Explosive
-SG-2251E Breaker Incendiary Shotgun|180|025|029|300|Light Armor Penetrating, Incendiary
-Jar-5 Dominator Explosive|200|015|075|250|Medium Armor Penetrating
+AR-23 Liberator|Assault Rifle|055|045|015|640|Light Armor Penetrating
+MP-98 Knight|Submachine Gun|050|050|020|1380|Light Armor Penetrating
+SG-8 Punisher|Shotgun|360|016|110|080|Light Armor Penetrating, Rounds Reload
+R-63 Diligence|Marksman Rifle|112|020|035|350|Light Armor Penetrating
+SMG-37 Defender|Submachine Gun|070|045|010|520|Light Armor Penetrating, One Handed
+SG-225 Breaker|Shotgun|330|016|030|300|Light Armor Penetrating
+AR-23P Liberator Penetrator|Assault Rifle|045|030|019|640|Medium Armor Penetrating
+R-63CS Diligence Counter Sniper|Marksman Rifle|128|015|053|350|Light Armor Penetrating
+SG-8s Slugger|Shotgun|128|015|053|350|Light Armor Penetrating
+SG-225SP Breaker Spray&Pray|Shotgun|144|032|045|300|Light Armor Penetrating
+AR-23E Liberator Explosive|Assault Rifle|055|030|029|320|Light Armor Penetrating, Explosive
+SG-2251E Breaker Incendiary|Shotgun|180|025|029|300|Light Armor Penetrating, Incendiary
+Jar-5 Dominator|Explosive|200|015|075|250|Medium Armor Penetrating

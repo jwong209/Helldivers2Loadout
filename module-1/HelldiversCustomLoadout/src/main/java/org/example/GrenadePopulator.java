@@ -34,11 +34,12 @@ public class GrenadePopulator {
                 String[] splitLine = lineOfText.split("\\|");
 
                 String name = splitLine[0];
-                String damage = splitLine[1];
-                String penetration = splitLine[2];
-                String outerRadius = splitLine[3];
-                String fuseTime = splitLine[4];
-                Grenade currentGrenade = new Grenade(name, damage, penetration, outerRadius, fuseTime);
+                String subType = splitLine[1];
+                String damage = splitLine[2];
+                String penetration = splitLine[3];
+                String outerRadius = splitLine[4];
+                String fuseTime = splitLine[5];
+                Grenade currentGrenade = new Grenade(name, damage, penetration, outerRadius, fuseTime, subType);
 
                 grenadesList.add(currentGrenade);
             }

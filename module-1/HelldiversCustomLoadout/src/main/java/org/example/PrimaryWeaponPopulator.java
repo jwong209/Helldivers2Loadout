@@ -35,12 +35,13 @@ public class PrimaryWeaponPopulator {
                 String[] splitLine = lineOfText.split("\\|");
 
                 String name = splitLine[0]; // name
-                String damage = splitLine[1]; // damage
-                String capacity = splitLine[2];  // capacity
-                String recoil = splitLine[3];  // recoil
-                String fireRate = splitLine[4];  // fireRate
-                String weaponTraits = splitLine[5];  // weaponTraits
-                Weapon currentPrimary = new Weapon(name, damage, capacity, recoil, fireRate, weaponTraits);
+                String subType = splitLine[1];  // subType
+                String damage = splitLine[2]; // damage
+                String capacity = splitLine[3];  // capacity
+                String recoil = splitLine[4];  // recoil
+                String fireRate = splitLine[5];  // fireRate
+                String weaponTraits = splitLine[6];  // weaponTraits
+                Weapon currentPrimary = new Weapon(name, damage, capacity, recoil, fireRate, weaponTraits, subType);
 
                 primaryWeaponsList.add(currentPrimary);
             }

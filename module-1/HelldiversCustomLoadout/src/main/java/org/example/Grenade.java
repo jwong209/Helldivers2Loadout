@@ -7,13 +7,15 @@ public class Grenade {
     private String penetration;
     private String outerRadius;
     private String fuseTime;
+    private String subType;
 
-    public Grenade(String name, String damage, String penetration, String outerRadius, String fuseTime) {
+    public Grenade(String name, String damage, String penetration, String outerRadius, String fuseTime, String subType) {
         this.name = name;
         this.damage = damage;
         this.penetration = penetration;
         this.outerRadius = outerRadius;
         this.fuseTime = fuseTime;
+        this.subType = subType;
     }
 
     public String getName() {
@@ -34,5 +36,9 @@ public class Grenade {
 
     public String getFuseTime() {
         return fuseTime;
+    }
+
+    public String getSubType() {
+        return subType;
     }
 }
