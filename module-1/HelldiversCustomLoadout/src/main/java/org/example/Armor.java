@@ -7,13 +7,24 @@ public class Armor {
     private String speed;
     private String staminaRegen;
     private String armorPassive;
+    private String subType;
 
+    // Constructor Cape
     public Armor(String name, String armorRating, String speed, String staminaRegen, String armorPassive) {
         this.name = name;
         this.armorRating = armorRating;
         this.speed = speed;
         this.staminaRegen = staminaRegen;
         this.armorPassive = armorPassive;
+    }
+    // Constructor Body Armor & Helmet
+    public Armor(String name, String armorRating, String speed, String staminaRegen, String armorPassive, String subType) {
+        this.name = name;
+        this.armorRating = armorRating;
+        this.speed = speed;
+        this.staminaRegen = staminaRegen;
+        this.armorPassive = armorPassive;
+        this.subType = subType;
     }
 
     // ----- Getters -----
@@ -37,4 +48,7 @@ public class Armor {
         return armorPassive;
     }
 
+    public String getSubType() {
+        return subType;
+    }
 }

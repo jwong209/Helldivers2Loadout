@@ -1,47 +1,47 @@
-Machine Gun|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
-Anti-Materiel Rifle|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
-Stalwart|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
-Expendable Anti-Tank|2 Seconds|Unlimited|70 Seconds|Support Weapon, Hellpod, Explosive
-Recoilless Rifle|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod, Explosive
-Flamethrower|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod, Incendiary
-Autocannon|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
-Railgun|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
-Spear|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
-Orbital Gatling Barrage|2 Seconds|Unlimited|80 Seconds|Explosive, Orbital
-Orbital Airburst Strike|2 Seconds|Unlimited|120 Seconds|Explosive, Orbital
-Orbital 120MM HE Barrage|5 Seconds|Unlimited|240 Seconds|Explosive, Orbital
-Orbital 380MM HE Barrage|6 Seconds|Unlimited|240 Seconds|Explosive, Orbital
-Orbital Walking Barrage|3 Seconds|Unlimited|240 Seconds|Explosive, Orbital
-Orbital Laser|2 Seconds|3|300 Seconds|Orbital
-Orbital Railcannon Strike|1 Seconds|Unlimited|210 Seconds|Orbital
-Eagle Strafing Run|0 Seconds|3|15 Seconds|Eagle
-Eagle Airstrike|0 Seconds|2|15 Seconds|Explosive, Eagle
-Eagle Cluster Bomb|0 Seconds|4|15 Seconds|Explosive, Eagle
-Eagle Napalm Airstrike|0 Seconds|2|15 Seconds|Explosive, Eagle
-Jump Pack|5 Seconds|Unlimited|480 Seconds|Hellpod, Backpack
-Eagle Smoke Strike|0 Seconds|2|15 Seconds|Explosive, Eagle
-Eagle 110MM Rocket Pods|0 Seconds|2|15 Seconds|Explosive, Eagle
-Eagle 500KG Bomb|0 Seconds|1|N/A|Explosive, Eagle
-Orbital Precision Strike|4 Seconds|Unlimited|100 Seconds|Explosive, Eagle
-Orbital Gas Strike|2 Seconds|Unlimited|75 Seconds|Explosive, Eagle
-Orbital EMS Strike|2 Seconds|Unlimited|75 Seconds|Orbital
-Orbital Smoke Strike|2 Seconds|Unlimited|100 Seconds|Explosive, Eagle
-HMG Emplacement|3 Seconds|Unlimited|180 Seconds|Hellpod
-Shield Generator Relay|0 Seconds|Unlimited|90 Seconds|Hellpod
-Tesla Tower|3 Seconds|Unlimited|150 Seconds|Hellpod, Sentry
-Anti-Personnel Minefield|3 Seconds|Unlimited|180 Seconds|Hellpod, Explosive
-Supply Pack|5 Seconds|Unlimited|480 Seconds|Hellpod, Backpack
-Grenade Launcher|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod, Explosive
-Laser Cannon|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
-Incendiary Mines|3 Seconds|Unlimited|180 Seconds|Hellpod, Explosive
-"Guard Dog" Rover|5 Seconds|Unlimited|480 Seconds|Hellpod, Backpack
-Ballistic Shield Backpack|5 Seconds|Unlimited|300 Seconds|Hellpod, Backpack
-Arc Thrower|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
-Shield Generator Pack|5 Seconds|Unlimited|480 Seconds|Hellpod, Backpack
-Machine Gun Sentry|3 Seconds|Unlimited|180 Seconds|Hellpod, Sentry
-Gatling Sentry|3 Seconds|Unlimited|180 Seconds|Hellpod, Sentry
-Mortar Sentry|3 Seconds|Unlimited|180 Seconds|Hellpod, Explosive, Sentry
-"Guard Dog"|5 Seconds|Unlimited|480 Seconds|Hellpod, Backpack
-Autocannon Sentry|3 Seconds|Unlimited|180 Seconds|Hellpod, Sentry
-Rocket Sentry|3 Seconds|Unlimited|180 Seconds|Hellpod, Explosive, Sentry
-EMS Mortar Sentry|3 Seconds|Unlimited|180 Seconds|Hellpod, Explosive, Sentry
+Machine Gun|Patriotic Administration Centre|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
+Anti-Materiel Rifle|Patriotic Administration Centre|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
+Stalwart|Patriotic Administration Centre|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
+Expendable Anti-Tank|Patriotic Administration Centre|2 Seconds|Unlimited|70 Seconds|Support Weapon, Hellpod, Explosive
+Recoilless Rifle|Patriotic Administration Centre|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod, Explosive
+Flamethrower|Patriotic Administration Centre|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod, Incendiary
+Autocannon|Patriotic Administration Centre|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
+Railgun|Patriotic Administration Centre|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
+Spear|Patriotic Administration Centre|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
+Orbital Gatling Barrage|Orbital Cannons|2 Seconds|Unlimited|80 Seconds|Explosive, Orbital
+Orbital Airburst Strike|Orbital Cannons|2 Seconds|Unlimited|120 Seconds|Explosive, Orbital
+Orbital 120MM HE Barrage|Orbital Cannons|5 Seconds|Unlimited|240 Seconds|Explosive, Orbital
+Orbital 380MM HE Barrage|Orbital Cannons|6 Seconds|Unlimited|240 Seconds|Explosive, Orbital
+Orbital Walking Barrage|Orbital Cannons|3 Seconds|Unlimited|240 Seconds|Explosive, Orbital
+Orbital Laser|Orbital Cannons|2 Seconds|3|300 Seconds|Orbital
+Orbital Railcannon Strike|Orbital Cannons|1 Seconds|Unlimited|210 Seconds|Orbital
+Eagle Strafing Run|Hangar|0 Seconds|3|15 Seconds|Eagle
+Eagle Airstrike|Hangar|0 Seconds|2|15 Seconds|Explosive, Eagle
+Eagle Cluster Bomb|Hangar|0 Seconds|4|15 Seconds|Explosive, Eagle
+Eagle Napalm Airstrike|Hangar|0 Seconds|2|15 Seconds|Explosive, Eagle
+Jump Pack|Hangar|5 Seconds|Unlimited|480 Seconds|Hellpod, Backpack
+Eagle Smoke Strike|Hangar|0 Seconds|2|15 Seconds|Explosive, Eagle
+Eagle 110MM Rocket Pods|Hangar|0 Seconds|2|15 Seconds|Explosive, Eagle
+Eagle 500KG Bomb|Hangar|0 Seconds|1|N/A|Explosive, Eagle
+Orbital Precision Strike|Bridge|4 Seconds|Unlimited|100 Seconds|Explosive, Eagle
+Orbital Gas Strike|Bridge|2 Seconds|Unlimited|75 Seconds|Explosive, Eagle
+Orbital EMS Strike|Bridge|2 Seconds|Unlimited|75 Seconds|Orbital
+Orbital Smoke Strike|Bridge|2 Seconds|Unlimited|100 Seconds|Explosive, Eagle
+HMG Emplacement|Bridge|3 Seconds|Unlimited|180 Seconds|Hellpod
+Shield Generator Relay|Bridge|0 Seconds|Unlimited|90 Seconds|Hellpod
+Tesla Tower|Bridge|3 Seconds|Unlimited|150 Seconds|Hellpod, Sentry
+Anti-Personnel Minefield|Engineering Bay|3 Seconds|Unlimited|180 Seconds|Hellpod, Explosive
+Supply Pack|Engineering Bay|5 Seconds|Unlimited|480 Seconds|Hellpod, Backpack
+Grenade Launcher|Engineering Bay|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod, Explosive
+Laser Cannon|Engineering Bay|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
+Incendiary Mines|Engineering Bay|3 Seconds|Unlimited|180 Seconds|Hellpod, Explosive
+"Guard Dog" Rover|Engineering Bay|5 Seconds|Unlimited|480 Seconds|Hellpod, Backpack
+Ballistic Shield Backpack|Engineering Bay|5 Seconds|Unlimited|300 Seconds|Hellpod, Backpack
+Arc Thrower|Engineering Bay|3 Seconds|Unlimited|480 Seconds|Support Weapon, Hellpod
+Shield Generator Pack|Engineering Bay|5 Seconds|Unlimited|480 Seconds|Hellpod, Backpack
+Machine Gun Sentry|Robotics Workshop|3 Seconds|Unlimited|180 Seconds|Hellpod, Sentry
+Gatling Sentry|Robotics Workshop|3 Seconds|Unlimited|180 Seconds|Hellpod, Sentry
+Mortar Sentry|Robotics Workshop|3 Seconds|Unlimited|180 Seconds|Hellpod, Explosive, Sentry
+"Guard Dog"|Robotics Workshop|5 Seconds|Unlimited|480 Seconds|Hellpod, Backpack
+Autocannon Sentry|Robotics Workshop|3 Seconds|Unlimited|180 Seconds|Hellpod, Sentry
+Rocket Sentry|Robotics Workshop|3 Seconds|Unlimited|180 Seconds|Hellpod, Explosive, Sentry
+EMS Mortar Sentry|Robotics Workshop|3 Seconds|Unlimited|180 Seconds|Hellpod, Explosive, Sentry

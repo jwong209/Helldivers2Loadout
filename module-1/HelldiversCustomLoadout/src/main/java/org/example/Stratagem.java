@@ -7,13 +7,15 @@ public class Stratagem {
     private String uses;
     private String cooldownTime;
     private String stratagemTraits;
+    private String subType;
 
-    public Stratagem(String name, String callInTime, String uses, String cooldownTime, String stratagemTraits) {
+    public Stratagem(String name, String callInTime, String uses, String cooldownTime, String stratagemTraits, String subType) {
         this.name = name;
         this.callInTime = callInTime;
         this.uses = uses;
         this.cooldownTime = cooldownTime;
         this.stratagemTraits = stratagemTraits;
+        this.subType = subType;
     }
 
     public String getName() {
@@ -34,5 +36,9 @@ public class Stratagem {
 
     public String getStratagemTraits() {
         return stratagemTraits;
+    }
+
+    public String getSubType() {
+        return subType;
     }
 }

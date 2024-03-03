@@ -1,29 +1,29 @@
-TR-9 Cavalier of Democracy|100|500|100|Democracy Protects - When you take lethal damage, there's a 50% chance you won't die. All stops all damage from chest wounds.
-TR-7 Ambassador of the Brand|100|500|100|Extra Padding - With this, your armor will be buffed and you'll receive a higher armor rating.
-DP-53 Saviour of the Free|100|500|100|Democracy Protects - When you take lethal damage, there's a 50% chance you won't die. All stops all damage from chest wounds.
-B-01 Tactical|100|500|100|Extra Padding - With this, your armor will be buffed and you'll receive a higher armor rating.
-CE-35 Trench Engineer|100|500|100|Engineering Kit - Recoil is reduced by 30% when prone or crouching. Inventory and capacity of grenades is increased by +2.
-TR-62 Knight|144|456|056|Servo-Assisted - Throwing range is increased by 30% and limb health receives an additional 50%.
-FS-05 Marskman|144|456|056|Fortified - Recoil is reduced by 30% when prone or crouching. Also gives 50% resistance to explosives.
-SC-34 Infiltrator|075|525|113|Scout - When you place a marker, a radar scan will appear every 2 seconds. This also stops the range at which enemies will detect you by 30%.
-CM-09 Bonesnapper|100|500|100|Med-Kit - Increases the number of Stims you can carry by 2. Also increases the duration of Stims by 2 seconds.
-DP-40 Hero of the Federation|100|500|100|Democracy Protects - When you take lethal damage, there's a 50% chance you won't die. All stops all damage from chest wounds.
-FS-23 Battle Master|144|456|056|Fortified - Recoil is reduced by 30% more when crouching or prone. Also provides resistance to explosive damage by 50%.
-SC-30 Trailblazer Scout|144|456|056|Scout - When you place a marker, a radar scan will appear every 2 seconds. This also stops the range at which enemies will detect you by 30%.
-SA-04 Combat Technician|100|500|100|Scout - When you place a marker, a radar scan will appear every 2 seconds. This also stops the range at which enemies will detect you by 30%.
-CM-14 Physician|100|500|100|Med-Kit - Increases the number of Stims you can carry by 2. Also increases the duration of Stims by 2 seconds.
-DP-11 Champion of the People|100|500|100|Democracy Protects - When you take lethal damage, there's a 50% chance you won't die. All stops all damage from chest wounds.
-B-24 Enforcer|125|475|075|Fortified - Recoil is reduced by 30% more when crouching or prone. Also provides resistance to explosive damage by 50%.
-CE-74 Breaker|056|544|122|Engineering Kit - Recoil is reduced by 30% when prone or crouching. Inventory and capacity of grenades is increased by +2.
-B-27 Fortified Commando|144|456|056|Extra Padding - With this, your armor will be buffed and you'll receive a higher armor rating.
-FS-38 Eradicator|056|544|122|Fortified - Recoil is reduced by 30% when prone or crouching. Also gives 50% resistance to explosives.
-B-08 Light Gunner|057|543|121|Extra Padding - With this, your armor will be buffed and you'll receive a higher armor rating.
-FS-61 Dreadnought|144|456|056|Servo-Assisted - Throwing range is increased by 30% and provides limb health for +50%.
-CE-81 Juggernaut|100|500|100|Engineering Kit - Recoil is reduced by 30% when prone or crouching. Inventory and capacity of grenades is increased by +2.
-FS-34 Exterminator|100|500|100|Fortified - Recoil is reduced by 30% when prone or crouching. Also gives 50% resistance to explosives.
-SC-37 Legionnaire|056|544|122|Servo-Assisted - Throwing range is increased by 30% and provides limb health for +50%.
-SC-15 Drone Master|100|500|100|Engineering Kit - Recoil is reduced by 30% when prone or crouching. Inventory and capacity of grenades is increased by +2.
-TR-117 Alpha Commander|100|500|100|Med-Kit - Increases the number of Stims you can carry by 2. Also increases the duration of Stims by 2 seconds.
-SA-25 Steel Trooper|100|500|100|Servo-Assisted - Throwing range is increased by 30% and provides limb health for +50%.
-SA-12 Servo Assisted|100|500|100|Servo-Assisted - Throwing range is increased by 30% and provides limb health for +50%.
-SA-32 Dynamo|143|457|057|Servo-Assisted - Throwing range is increased by 30% and provides limb health for +50%.
+TR-9 Cavalier of Democracy|Medium Armor|100|500|100|Democracy Protects - When you take lethal damage, there's a 50% chance you won't die. All stops all damage from chest wounds.
+TR-7 Ambassador of the Brand|Medium Armor|100|500|100|Extra Padding - With this, your armor will be buffed and you'll receive a higher armor rating.
+DP-53 Saviour of the Free|Medium Armor|100|500|100|Democracy Protects - When you take lethal damage, there's a 50% chance you won't die. All stops all damage from chest wounds.
+B-01 Tactical|Medium Armor|100|500|100|Extra Padding - With this, your armor will be buffed and you'll receive a higher armor rating.
+CE-35 Trench Engineer|Medium Armor|100|500|100|Engineering Kit - Recoil is reduced by 30% when prone or crouching. Inventory and capacity of grenades is increased by +2.
+TR-62 Knight|Heavy Armor|144|456|056|Servo-Assisted - Throwing range is increased by 30% and limb health receives an additional 50%.
+FS-05 Marskman|Heavy Armor|144|456|056|Fortified - Recoil is reduced by 30% when prone or crouching. Also gives 50% resistance to explosives.
+SC-34 Infiltrator|Light Armor|075|525|113|Scout - When you place a marker, a radar scan will appear every 2 seconds. This also stops the range at which enemies will detect you by 30%.
+CM-09 Bonesnapper|Medium Armor|100|500|100|Med-Kit - Increases the number of Stims you can carry by 2. Also increases the duration of Stims by 2 seconds.
+DP-40 Hero of the Federation|Medium Armor|100|500|100|Democracy Protects - When you take lethal damage, there's a 50% chance you won't die. All stops all damage from chest wounds.
+FS-23 Battle Master|Heavy Armor|144|456|056|Fortified - Recoil is reduced by 30% more when crouching or prone. Also provides resistance to explosive damage by 50%.
+SC-30 Trailblazer Scout|Light Armor|144|456|056|Scout - When you place a marker, a radar scan will appear every 2 seconds. This also stops the range at which enemies will detect you by 30%.
+SA-04 Combat Technician|Medium Armor|100|500|100|Scout - When you place a marker, a radar scan will appear every 2 seconds. This also stops the range at which enemies will detect you by 30%.
+CM-14 Physician|Medium Armor|100|500|100|Med-Kit - Increases the number of Stims you can carry by 2. Also increases the duration of Stims by 2 seconds.
+DP-11 Champion of the People|Medium Armor|100|500|100|Democracy Protects - When you take lethal damage, there's a 50% chance you won't die. All stops all damage from chest wounds.
+B-24 Enforcer|Medium Armor|125|475|075|Fortified - Recoil is reduced by 30% more when crouching or prone. Also provides resistance to explosive damage by 50%.
+CE-74 Breaker|Light Armor|056|544|122|Engineering Kit - Recoil is reduced by 30% when prone or crouching. Inventory and capacity of grenades is increased by +2.
+B-27 Fortified Commando|Heavy Armor|144|456|056|Extra Padding - With this, your armor will be buffed and you'll receive a higher armor rating.
+FS-38 Eradicator|Light Armor|056|544|122|Fortified - Recoil is reduced by 30% when prone or crouching. Also gives 50% resistance to explosives.
+B-08 Light Gunner|Light Armor|057|543|121|Extra Padding - With this, your armor will be buffed and you'll receive a higher armor rating.
+FS-61 Dreadnought|Heavy Armor|144|456|056|Servo-Assisted - Throwing range is increased by 30% and provides limb health for +50%.
+CE-81 Juggernaut|Medium Armor|100|500|100|Engineering Kit - Recoil is reduced by 30% when prone or crouching. Inventory and capacity of grenades is increased by +2.
+FS-34 Exterminator|Medium Armor|100|500|100|Fortified - Recoil is reduced by 30% when prone or crouching. Also gives 50% resistance to explosives.
+SC-37 Legionnaire|Light Armor|056|544|122|Servo-Assisted - Throwing range is increased by 30% and provides limb health for +50%.
+SC-15 Drone Master|Medium Armor|100|500|100|Engineering Kit - Recoil is reduced by 30% when prone or crouching. Inventory and capacity of grenades is increased by +2.
+TR-117 Alpha Commander|Medium Armor|100|500|100|Med-Kit - Increases the number of Stims you can carry by 2. Also increases the duration of Stims by 2 seconds.
+SA-25 Steel Trooper|Medium Armor|100|500|100|Servo-Assisted - Throwing range is increased by 30% and provides limb health for +50%.
+SA-12 Servo Assisted|Medium Armor|100|500|100|Servo-Assisted - Throwing range is increased by 30% and provides limb health for +50%.
+SA-32 Dynamo|Heavy Armor|143|457|057|Servo-Assisted - Throwing range is increased by 30% and provides limb health for +50%.

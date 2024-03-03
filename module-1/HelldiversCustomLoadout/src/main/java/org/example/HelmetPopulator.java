@@ -30,11 +30,12 @@ public class HelmetPopulator {
                 String[] splitLine = lineOfText.split("\\|");
 
                 String name = splitLine[0];
-                String armorRating = splitLine[1];
-                String speed = splitLine[2];
-                String staminaRegen = splitLine[3];
-                String armorPassive = splitLine[4];
-                Armor currentArmor = new Armor(name, armorRating, speed, staminaRegen, armorPassive);
+                String subType = splitLine[1];
+                String armorRating = splitLine[2];
+                String speed = splitLine[3];
+                String staminaRegen = splitLine[4];
+                String armorPassive = splitLine[5];
+                Armor currentArmor = new Armor(name, armorRating, speed, staminaRegen, armorPassive, subType);
 
                 helmetsList.add(currentArmor);
             }

@@ -31,11 +31,12 @@ public class StratagemPopulator {
                 String[] splitLine = lineOfText.split("\\|");
 
                 String name = splitLine[0];
-                String callInTime = splitLine[1];
-                String uses = splitLine[2];
-                String cooldownTime = splitLine[3];
-                String stratagemTraits = splitLine[4];
-                Stratagem currentStratagem = new Stratagem(name, callInTime, uses, cooldownTime, stratagemTraits);
+                String subType = splitLine[1];
+                String callInTime = splitLine[2];
+                String uses = splitLine[3];
+                String cooldownTime = splitLine[4];
+                String stratagemTraits = splitLine[5];
+                Stratagem currentStratagem = new Stratagem(name, callInTime, uses, cooldownTime, stratagemTraits, subType);
 
                 stratagemsList.add(currentStratagem);
             }
