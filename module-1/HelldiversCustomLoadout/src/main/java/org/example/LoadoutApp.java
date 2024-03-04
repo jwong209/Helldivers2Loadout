@@ -31,7 +31,7 @@ public class LoadoutApp {
     public List<Loadout> getLoadouts() {
         return loadouts;
     }
-
+    // -------------------
     public void createLoadout() {
 
         boolean willContinue = true;
@@ -72,6 +72,7 @@ public class LoadoutApp {
 
         // ----- Create List of subtype names to print -----
             System.out.println(weaponType + " types: ");
+            /* -- Using Set --> List --
             Set<String> subTypeSet = new HashSet<>();   // temporary Set to store subType, unique means less code
 
             for (Weapon weapon : weaponsList) {
@@ -80,6 +81,19 @@ public class LoadoutApp {
 
             List<String> subTypeList = new ArrayList<>(subTypeSet);  // convert back to temporary List
 
+            for (int i = 0; i < subTypeList.size(); i++) {
+                System.out.println((i + 1) + ") " + subTypeList.get(i));
+            }
+
+            */
+            // -- Using List instead of Set to ensure original order --
+            List<String> subTypeList = new ArrayList<>();
+
+            for (Weapon weapon : weaponsList) {
+                if (!subTypeList.contains(weapon.getSubType())) {
+                    subTypeList.add(weapon.getSubType());
+                }
+            }
             for (int i = 0; i < subTypeList.size(); i++) {
                 System.out.println((i + 1) + ") " + subTypeList.get(i));
             }
@@ -108,26 +122,29 @@ public class LoadoutApp {
         // ----- User selects of chosen subtype -----
             System.out.print("\nSelect a " + weaponType + " or enter '0' to reselect: ");
             String weaponSelected = scanner.nextLine();
-            int weaponNumber = Integer.parseInt(weaponSelected);
+            int weaponSelectedInt = Integer.parseInt(weaponSelected);
 
-            if (weaponNumber == 0) {
+            if (weaponSelectedInt == 0) {
                 continue;
             }
-            if (weaponNumber < 0 || weaponNumber > weaponsList.size()) {
+            if (weaponSelectedInt < 0 || weaponSelectedInt > weaponsList.size()) {
                 System.out.println("Please enter number between 1 and " + weaponsList.size());
                 continue;
             }
 
             // -- Use temp counter to match with order List was printed for User --
+
             int subtypeFoundCount = 1;
             for (Weapon weapon : weaponsList) {
                 if (weapon.getSubType().equals(selectedSubType)) {
-                    if (subtypeFoundCount == weaponNumber) {
+                    if (subtypeFoundCount == weaponSelectedInt) {
                         return weapon;
                     }
                     subtypeFoundCount++;
                 }
             }
+
+
         }
 
     }
