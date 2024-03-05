@@ -1,5 +1,11 @@
 package org.example;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 public class LoadoutApp {
@@ -24,7 +30,7 @@ public class LoadoutApp {
     private List<Armor> availableCapes = capePopulator.getCapesList();
     private List<Stratagem> availableStratagems = stratagemPopulator.getStratagemsList();
     private List<Booster> availableBoosters = boosterPopulator.getBoostersList();
-    private List<Loadout> loadouts = new ArrayList<>();    // Store created loadouts here
+    private List<Loadout> loadouts = new ArrayList<>();                       // Store created loadouts here
 
 
     // ----- Getters -----
@@ -61,7 +67,40 @@ public class LoadoutApp {
             } else if (continueChoice.equals("N")) {
                 willContinue = false;
             }
+
+        // Update a log file of last created loadout
+            String logPath = "loadouts.log";
+            File logFile = new File(logPath);
+
+
+            try (PrintWriter log = new PrintWriter(new FileOutputStream(logFile, true))) {
+
+                Loadout currentLoadout = loadouts.get(loadouts.size() - 1);
+
+                log.println("[   Loadout: " + currentLoadout.getName() + "   ]");
+                log.println("Primary Weapon: " + currentLoadout.getPrimaryWeapon().getName());
+                log.println("Secondary Weapon: " + currentLoadout.getSecondaryWeapon().getName());
+                log.println("Grenade: " + currentLoadout.getGrenade().getName());
+                log.println("Helmet: " + currentLoadout.getHelmet().getName());
+                log.println("Body Armor: " + currentLoadout.getBodyArmor().getName());
+                log.println("Cape: " + currentLoadout.getCape().getName());
+                log.println("Stratagems: ");
+
+                for (Stratagem stratagem : currentLoadout.getStratagems()) {
+                    log.println("- " + stratagem.getName());
+                }
+
+                log.println("Booster: " + currentLoadout.getBooster().getName());
+                log.println("\nSuccessfully created on: " + LocalDateTime.now());
+                log.println("------------------------------------------");
+
+            } catch (FileNotFoundException e) {
+                System.out.println("File not found.");
+            }
+            System.out.println("---------------------------------------------------------");
         }
+
+
 
     }
 
@@ -86,7 +125,7 @@ public class LoadoutApp {
             }
 
             */
-            // -- Using List instead of Set to ensure original order --
+        // -- Using List instead of Set to ensure original order although no errors using Set during testing --
             List<String> subTypeList = new ArrayList<>();
 
             for (Weapon weapon : weaponsList) {
@@ -101,20 +140,22 @@ public class LoadoutApp {
         // ----- User chooses a subtype -----
             System.out.print("\nSelect a type of " + weaponType + " to view or enter '0' to reselect a type: ");
             String subtypeSelected = scanner.nextLine();
-            int subtypeNumber = Integer.parseInt(subtypeSelected);
+            int subtypeInt = Integer.parseInt(subtypeSelected);
 
-            if (subtypeNumber == 0) {        // reselection
+            if (subtypeInt == 0) {        // reselection
                 continue;
             }
 
-            String selectedSubType = subTypeList.get(subtypeNumber - 1);
+            String selectedSubType = subTypeList.get(subtypeInt - 1);
             System.out.println("\nAvailable " + selectedSubType + ": ");
 
         // ----- Print available of that subtype  -----
+            System.out.println("  Name  |  Damage  |  Capacity  |  Recoil  |  Fire Rate  |  Weapon Traits");
+            System.out.println("----------------------------------------------------------------------------");
             int weaponCount = 1;
             for (Weapon weapon : weaponsList) {
                 if (weapon.getSubType().equals(selectedSubType)) {
-                    System.out.println(weaponCount + ") " + weapon.getName());
+                    System.out.println(weaponCount + ") " + weapon.getName() + "  |  " + weapon.getDamage() + "  |  " + weapon.getCapacity() + "  |  " + weapon.getRecoil() + "  |  " + weapon.getFireRate() + "  |  " + weapon.getWeaponTraits());
                     weaponCount++;
                 }
             }
@@ -132,19 +173,17 @@ public class LoadoutApp {
                 continue;
             }
 
-            // -- Use temp counter to match with order List was printed for User --
-
+        // -- Use temp counter to match with order List was printed for User --
             int subtypeFoundCount = 1;
             for (Weapon weapon : weaponsList) {
                 if (weapon.getSubType().equals(selectedSubType)) {
                     if (subtypeFoundCount == weaponSelectedInt) {
+                        System.out.println(">> " + weapon.getName() + " selected <<");
                         return weapon;
                     }
                     subtypeFoundCount++;
                 }
             }
-
-
         }
 
     }
@@ -153,58 +192,72 @@ public class LoadoutApp {
     private Grenade selectGrenade(List<Grenade> grenadeList, Scanner scanner) {
 
         while (true) {
-            System.out.println("\n[ Grenade Selection ]");
-            System.out.println("--------------------");
+            System.out.println("\n[ Grenade Selection ]\n");
+            System.out.println("Grenades types: ");
 
-            // get the types but have to be unique collection, print off types with # selections, Set --> List
-            Set<String> subTypeSet = new HashSet<>();   // temporary Set to store subType, unique means less code
+        // ----- Create list of unique subtype names -----
+            List<String> subTypeList = new ArrayList<>();
 
             for (Grenade grenade : grenadeList) {
-                subTypeSet.add(grenade.getSubType());
+                if (!subTypeList.contains(grenade.getSubType())) {
+                    subTypeList.add(grenade.getSubType());
+                }
             }
-
-            List<String> subTypeList = new ArrayList<>(subTypeSet);  // convert back to temporary List to make it easier. how to iterate through Set w/ordered numbers listing?
 
             for (int i = 0; i < subTypeList.size(); i++) {
                 System.out.println((i + 1) + ") " + subTypeList.get(i));
             }
 
-            System.out.print("Enter a number selection to view a list of the subtype of Grenade or enter '0' to reselect: ");
+        // ----- User chooses a subtype -----
+            System.out.print("\nSelect a type of Grenade or enter '0' to reselect a type: ");
             String subtypeSelected = scanner.nextLine();
-            int subtypeNumber = Integer.parseInt(subtypeSelected);
+            int subtypeInt = Integer.parseInt(subtypeSelected);
 
-            if (subtypeNumber == 0) {        // reselection, want to continue the loop so don't 'break'
+            if (subtypeInt == 0) {        // reselection
+                continue;
+            }
+            if (subtypeInt < 0 || subtypeInt > subTypeList.size()) {
+                System.out.println("Please enter number between 1 and " + subTypeList.size());
                 continue;
             }
 
-            String selectedSubType = subTypeList.get(subtypeNumber - 1);
+            String selectedSubType = subTypeList.get(subtypeInt - 1);
             System.out.println("\nAvailable " + selectedSubType);
 
-            // using List of subtype names, loop through to find matching subType from each Weapon, print those
+        // ----- Print available of that subtype  -----
+            System.out.println("  Name  |  Damage  |  Penetration  |  Outer Radius  |  Fuse Time");
+            System.out.println("-------------------------------------------------------------------");
+
             int grenadeCount = 1;
             for (Grenade grenade : grenadeList) {
                 if (grenade.getSubType().equals(selectedSubType)) {
-                    System.out.println(grenadeCount + ") " + grenade.getName());
+                    System.out.println(grenadeCount + ") " + grenade.getName() + "  |  " + grenade.getDamage() + "  |  " + grenade.getPenetration() + "  |  " + grenade.getOuterRadius() + "  |  " + grenade.getFuseTime());
                     grenadeCount++;
                 }
             }
 
-            // user selects from the List of subType names
-            System.out.print("\nEnter a Grenade or enter '0' to reselect: ");
+        // ----- User selects of chosen subtype -----
+            System.out.print("\nSelect a Grenade or enter '0' to reselect: ");
             String grenadeSelected = scanner.nextLine();
-            int grenadeNumber = Integer.parseInt(grenadeSelected);
+            int grenadeSelectInt = Integer.parseInt(grenadeSelected);
 
-            if (grenadeNumber == 0) {
+            if (grenadeSelectInt == 0) {
+                continue;
+            }
+            if (grenadeSelectInt < 0 || grenadeSelectInt > grenadeList.size()) {
+                System.out.println("Please enter number between 1 and " + grenadeList.size());
                 continue;
             }
 
-            int count = 1;
+        // -- Use temp counter to match with order List was printed for User --
+            int subtypeFoundCount = 1;
             for (Grenade grenade : grenadeList) {
                 if (grenade.getSubType().equals(selectedSubType)) {
-                    if (count == grenadeNumber) {
+                    if (subtypeFoundCount == grenadeSelectInt) {
+                        System.out.println(">> " + grenade.getName() + " selected <<");
                         return grenade;
                     }
-                    count++;
+                    subtypeFoundCount++;
                 }
             }
         }
@@ -214,58 +267,68 @@ public class LoadoutApp {
     private Armor selectArmor(String armorType, List<Armor> armorList, Scanner scanner) {
 
         while (true) {
-            System.out.println("\n[ " + armorType + "Selection ]");
-            System.out.println("--------------------");
+            System.out.println("\n[ " + armorType + " Selection ]\n");
+            System.out.println("" + armorType + " types: ");
 
-            // get the types but have to be unique collection, print off types with # selections, Set --> List
-            Set<String> subTypeSet = new HashSet<>();   // temporary Set to store subType, unique means less code
+            // ----- Create list of unique subtype names -----
+            List<String> subTypeList = new ArrayList<>();
 
             for (Armor armor : armorList) {
-                subTypeSet.add(armor.getSubType());
+                if (!subTypeList.contains(armor.getSubType())) {
+                    subTypeList.add(armor.getSubType());
+                }
             }
-
-            List<String> subTypeList = new ArrayList<>(subTypeSet);
 
             for (int i = 0; i < subTypeList.size(); i++) {
                 System.out.println((i + 1) + ") " + subTypeList.get(i));
             }
 
-            System.out.print("Enter a number selection to view a list of the subtype of" + armorType + " or enter '0' to reselect: ");
+        // ----- User chooses a subtype -----
+            System.out.print("\nSelect a type of the subtype of " + armorType + " or enter '0' to reselect a type: ");
             String subtypeSelected = scanner.nextLine();
-            int subtypeNumber = Integer.parseInt(subtypeSelected);
+            int subtypeInt = Integer.parseInt(subtypeSelected);
 
-            if (subtypeNumber == 0) {
+            if (subtypeInt == 0) {
                 continue;
             }
 
-            String selectedSubType = subTypeList.get(subtypeNumber - 1);
+            String selectedSubType = subTypeList.get(subtypeInt - 1);
             System.out.println("\nAvailable " + selectedSubType);
 
-            // using List of subtype names, loop through to find matching subType from each Weapon, print those
-            int grenadeCount = 1;
+        // ----- Print available of that subtype  -----
+            System.out.println("  Name  |  Armor Rating  |  Speed  |  Stamina Regen  |  Armor Passive");
+            System.out.println("------------------------------------------------------------------------");
+
+            int armorCount = 1;
             for (Armor armor : armorList) {
                 if (armor.getSubType().equals(selectedSubType)) {
-                    System.out.println(grenadeCount + ") " + armor.getName());
-                    grenadeCount++;
+                    System.out.println(armorCount + ") " + armor.getName() + "  |  " + armor.getArmorRating() + "  |  " + armor.getSpeed() + "  |  " + armor.getStaminaRegen() + "  |  " + armor.getArmorPassive());
+                    armorCount++;
                 }
             }
 
-            // user selects from the List of subType names
-            System.out.println("\nEnter a " + armorType + " or enter '0' to reselect: ");
-            String grenadeSelected = scanner.nextLine();
-            int grenadeNumber = Integer.parseInt(grenadeSelected);
+        // ----- User selects of chosen subtype -----
+            System.out.println("\nSelect a " + armorType + " or enter '0' to reselect: ");
+            String armorSelected = scanner.nextLine();
+            int armorSelectedInt = Integer.parseInt(armorSelected);
 
-            if (grenadeNumber == 0) {
+            if (armorSelectedInt == 0) {
+                continue;
+            }
+            if (armorSelectedInt < 0 || armorSelectedInt > armorList.size()) {
+                System.out.println("Please enter number between 1 and " + armorList.size());
                 continue;
             }
 
-            int count = 1;
+        // -- Use temp counter to match with order List was printed for User --
+            int subtypeFoundCount = 1;
             for (Armor armor : armorList) {
                 if (armor.getSubType().equals(selectedSubType)) {
-                    if (count == grenadeNumber) {
+                    if (subtypeFoundCount == armorSelectedInt) {
+                        System.out.println(">> " + armor.getName() + " selected <<");
                         return armor;
                     }
-                    count++;
+                    subtypeFoundCount++;
                 }
             }
         }
@@ -274,40 +337,46 @@ public class LoadoutApp {
 
     private Armor selectCape(List<Armor> armorList, Scanner scanner) {
 
-        System.out.println("\n[ Cape Selection ]");
-        System.out.println("--------------------");
+        System.out.println("\n[ Cape Selection ]\n");
+
+        System.out.println("  Name  |  Armor Rating  |  Speed  |  Stamina Regen  |  Armor Passive");
+        System.out.println("------------------------------------------------------------------------");
 
         for (int i = 0; i < armorList.size(); i++) {
-            System.out.println((i + 1) + ") " + armorList.get(i).getName());
+            System.out.println((i + 1) + ") " + armorList.get(i).getName() + "  |  " + armorList.get(i).getArmorRating() + "  |  " + armorList.get(i).getSpeed() + "  |  " + armorList.get(i).getStaminaRegen() + "  |  " + armorList.get(i).getArmorPassive());
         }
 
-        System.out.print("\nSelect a Cape (Please enter a number from the list): ");
+        System.out.print("\nSelect a Cape: ");
         String selectionString = scanner.nextLine();
         int selectionInt = Integer.parseInt(selectionString);
 
-        return armorList.get(selectionInt - 1);
+        Armor selectedCape = armorList.get(selectionInt - 1);
+        System.out.println(">> " + selectedCape.getName() + " selected <<");
+        return selectedCape;
     }
 
     private Booster selectBooster(List<Booster> boosterList, Scanner scanner) {
 
-        System.out.println("\n[ Booster Selection ]");
-        System.out.println("--------------------");
+        System.out.println("\n[ Booster Selection ]\n");
 
+        System.out.println("  Name  |  Benefit");
+        System.out.println("---------------------");
         for (int i = 0; i < boosterList.size(); i++) {
-            System.out.println((i + 1) + ") " + boosterList.get(i).getName());
+            System.out.println((i + 1) + ") " + boosterList.get(i).getName() + "  |  " + boosterList.get(i).getBenefit());
         }
 
-        System.out.print("\nSelect a Booster (Please enter a number from the list): ");
+        System.out.print("\nSelect a Booster: ");
         String selectionString = scanner.nextLine();
         int selectionInt = Integer.parseInt(selectionString);
 
-        return boosterList.get(selectionInt - 1);
+        Booster selectedBooster = boosterList.get(selectionInt - 1);
+        System.out.println(">> " +selectedBooster.getName() + " selected <<");
+        return selectedBooster;
     }
 
     private Set<Stratagem> selectStratagems(List<Stratagem> stratagemList, Scanner scanner) {
 
-        System.out.println("\n[ Stratagem Selection ]");
-        System.out.println("--------------------");
+        System.out.println("\n[ Stratagem Selection ]\n");
 
         Set<Stratagem> selectedStratagemSet = new HashSet<>();  // unique Stratagem
 
@@ -315,19 +384,28 @@ public class LoadoutApp {
 
         while (numberOfStratagemsSelected < 4) {
         // ----- Create List of subtype names to print -----
-            System.out.println("\nStratagem types: ");
-            Set<String> subTypeSet = new HashSet<>();              // this section needs to repeat up to 4 times so inside while loop
+//            System.out.println("\nStratagem types: ");
+//            Set<String> subTypeSet = new HashSet<>();              // this section needs to repeat up to 4 times so inside while loop
+//            for (Stratagem stratagem : stratagemList) {
+//                subTypeSet.add(stratagem.getSubType());
+//            }
+//
+//            List<String> subTypeList = new ArrayList<>(subTypeSet);
+            List<String> subTypeList = new ArrayList<>();
+
             for (Stratagem stratagem : stratagemList) {
-                subTypeSet.add(stratagem.getSubType());
+                if (!subTypeList.contains(stratagem.getSubType())) {
+                    subTypeList.add(stratagem.getSubType());
+                }
             }
 
-            List<String> subTypeList = new ArrayList<>(subTypeSet);
+            System.out.println("Stratagem types: ");
             for (int i = 0; i < subTypeList.size(); i++) {
                 System.out.println((i + 1) + ") " + subTypeList.get(i));
             }
 
         // ----- User chooses a subtype -----
-            System.out.println("\nEnter number to select subtype or enter '0' to finish Stratagem selection process: ");
+            System.out.println("\nSelect a type of Stratagem enter '0' to end Stratagem selection process: ");
             String subtypeInput = scanner.nextLine();
             int subtypeInt = Integer.parseInt(subtypeInput);
 
@@ -343,54 +421,55 @@ public class LoadoutApp {
             System.out.println("\nAvailable " + selectedSubtype + ": ");
 
         // ----- Print available stratagems of that subtype  -----
+            System.out.println("  Name  |  Call-In Time  |  Uses  |  Cooldown Time  |  Stratagem Traits");
+            System.out.println("--------------------------------------------------------------------------");
             int stratagemCount = 1;
             for (Stratagem stratagem: stratagemList) {
                 if (stratagem.getSubType().equals(selectedSubtype)) {
-                    System.out.println(stratagemCount + ") " + stratagem.getName());
+                    System.out.println(stratagemCount + ") " + stratagem.getName() + "  |  " + stratagem.getCallInTime() + "  |  " + stratagem.getUses() + "  |  " + stratagem.getCooldownTime() + "  |  " + stratagem.getStratagemTraits());
                     stratagemCount++;
                 }
             }
 
         // ----- User selects stratagem of chosen subtype -----
-            System.out.println("\nEnter number of stratagem or enter '0' to cancel and view another subtype: ");
-            String stratagemInput = scanner.nextLine();
-            int stratagemInt = Integer.parseInt(stratagemInput);
+            System.out.print("\nSelect a Stratagem or enter '0' to reselect: ");
+            String stratagemSelected = scanner.nextLine();
+            int stratagemSelectedInt = Integer.parseInt(stratagemSelected);
 
-            if (stratagemInt == 0) {
+            if (stratagemSelectedInt == 0) {
                 continue;
             }
-            if (stratagemInt < 0 || stratagemInt > stratagemList.size()) {
+            if (stratagemSelectedInt < 0 || stratagemSelectedInt > stratagemList.size()) {
                 System.out.println("Please enter number between 1 and " + stratagemList.size());
                 continue;
             }
 
-            // -- Use temp counter to match with order stratagemList was printed for User --
+        // -- Use temp counter to match with order stratagemList was printed for User --
             Stratagem selectedStratagem = null;
             int subtypeFoundCount = 0;
 
             for (Stratagem stratagem : stratagemList) {
                 if (stratagem.getSubType().equals(selectedSubtype)) { // condition 1 --> match subtype name
                     subtypeFoundCount++;
-                    if (subtypeFoundCount == stratagemInt) {   // condition 2 --> count matches what user entered
+                    if (subtypeFoundCount == stratagemSelectedInt) {   // condition 2 --> count matches what user entered
                         selectedStratagem = stratagem;
-                        break;
+                        System.out.println(">> " + selectedStratagem.getName() + " selected <<");
+//                        break;
                     }
                 }
             }
 
-            // -- Check if selectedStratagem Set already has it --
+        // -- Check if selectedStratagem Set already has it (unique) --
             if (selectedStratagem != null) {
                 if (selectedStratagemSet.contains(selectedStratagem)) {
-                    System.out.println("\nStratagem was selected already. Please reselect.");
+                    System.out.println("\n[!] Stratagem was selected already. Please reselect. [!]");
                 } else {
                     selectedStratagemSet.add(selectedStratagem);
                     numberOfStratagemsSelected++;
-//                    System.out.println("Stratagem selection complete.");
                 }
             }
 
         }
-//        System.out.println("returned selectedStratagemSet");
         // -- Confirmation of selection --
         System.out.println("\nStratagems selected: ");
         for (Stratagem stratagem : selectedStratagemSet) {
