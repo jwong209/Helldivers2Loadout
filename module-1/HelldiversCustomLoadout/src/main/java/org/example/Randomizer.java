@@ -1,11 +1,28 @@
 package org.example;
 
-public interface Randomizer {
+import java.util.List;
 
-//    public abstract ??? selectRandomItem(List<???> itemList) {
+
+public interface Randomizer<T> {
+
+//    public LoadoutItem selectRandomItem(List<LoadoutItem> itemList) {
 //
-//        int index = randomGenerator.nextInt(itemList.size());
-//        return itemList.get(index);
+//        int itemIndex = randomGenerator.nextInt(itemList.size());
+//        return itemList.get(itemIndex);
+//
+//    }
+/*
+    public ??? selectRandomItem(List<???> itemList) {
+
+        int itemIndex = randomGenerator.nextInt(itemList.size());
+        return itemList.get(itemIndex);
+
+    }
+ */
+//    public default T selectRandomItem(List<T> itemList) {
+//
+//        int itemIndex = randomGenerator.nextInt(itemList.size());
+//        return itemList.get(itemIndex);
 //
 //    }
 

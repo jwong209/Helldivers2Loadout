@@ -4,40 +4,45 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
 public class LoadoutApp {
     private final Scanner userInput = new Scanner(System.in);
 
-    // ----- Populate lists from files, create obj from classes that handle this -----
-    private PrimaryWeaponPopulator primaryWeaponPopulator = new PrimaryWeaponPopulator();
-    private SecondaryWeaponPopulator secondaryWeaponPopulator = new SecondaryWeaponPopulator();
-    private GrenadePopulator grenadePopulator = new GrenadePopulator();
-    private HelmetPopulator helmetPopulator = new HelmetPopulator();
-    private BodyArmorPopulator bodyArmorPopulator = new BodyArmorPopulator();
-    private CapePopulator capePopulator = new CapePopulator();
-    private StratagemPopulator stratagemPopulator = new StratagemPopulator();
-    private BoosterPopulator boosterPopulator = new BoosterPopulator();
+// ----- Managers tasked with populating available lists and selecting items -----
+    private WeaponManager weaponManager = new WeaponManager();
+    private GrenadeManager grenadeManager = new GrenadeManager();
+    private ArmorManager armorManager = new ArmorManager();
+    private CapeManager capeManager = new CapeManager();
+    private StratagemManager stratagemManager = new StratagemManager();
+    private BoosterManager boosterManager = new BoosterManager();
 
-    // ----- From populators, create lists to house available items for each category -----
-    private List<Weapon> availablePrimaryWeapons = primaryWeaponPopulator.getPrimaryWeaponsList();
-    private List<Weapon> availableSecondaryWeapons = secondaryWeaponPopulator.getSecondaryWeaponsList();
-    private List<Grenade> availableGrenades = grenadePopulator.getGrenadesList();
-    private List<Armor> availableHelmets = helmetPopulator.getHelmetsList();
-    private List<Armor> availableBodyArmor = bodyArmorPopulator.getBodyArmorList();
-    private List<Armor> availableCapes = capePopulator.getCapesList();
-    private List<Stratagem> availableStratagems = stratagemPopulator.getStratagemsList();
-    private List<Booster> availableBoosters = boosterPopulator.getBoostersList();
-    private List<Loadout> loadouts = new ArrayList<>();                       // Store created loadouts here
+    // ----- Populate lists from files -----
+//    private HelmetPopulator helmetPopulator = new HelmetPopulator();
+//    private BodyArmorPopulator bodyArmorPopulator = new BodyArmorPopulator();
+//    private CapePopulator capePopulator = new CapePopulator();
+//    private StratagemPopulator stratagemPopulator = new StratagemPopulator();
+//    private BoosterPopulator boosterPopulator = new BoosterPopulator();
+
+// ----- Create lists of available items from Managers -----
+    private List<Weapon> availablePrimaryWeapons = weaponManager.getPrimaryWeaponsList();
+    private List<Weapon> availableSecondaryWeapons = weaponManager.getSecondaryWeaponsList();
+    private List<Grenade> availableGrenades = grenadeManager.getGrenadesList();
+    private List<Armor> availableHelmets = armorManager.getHelmetList();
+    private List<Armor> availableBodyArmor = armorManager.getBodyArmorList();
+    private List<Armor> availableCapes = capeManager.getCapesList();
+    private List<Stratagem> availableStratagems = stratagemManager.getStratagemsList();
+    private List<Booster> availableBoosters = boosterManager.getBoostersList();
+    private List<Loadout> loadouts = new ArrayList<>();                       // Store loadouts
 
 
-    // ----- Getters -----
+// ----- Getters -----
     public List<Loadout> getLoadouts() {
         return loadouts;
     }
-    // -------------------
+
+// ----- Methods -----
     public void createLoadout() {
 
         boolean willContinue = true;
@@ -46,20 +51,25 @@ public class LoadoutApp {
             System.out.print("\nEnter name for custom loadout: ");
             String loadoutName = userInput.nextLine();
 
-            Weapon selectedPrimary = selectWeapon("Primary Weapon", availablePrimaryWeapons, userInput);
-            Weapon selectedSecondary = selectWeapon("Secondary Weapon", availableSecondaryWeapons, userInput);
-            Grenade selectedGrenade = selectGrenade(availableGrenades, userInput);
-            Armor selectedHelmet = selectArmor("Helmet", availableHelmets, userInput);
-            Armor selectedBodyArmor = selectArmor("Body Armor", availableBodyArmor, userInput);
-            Armor selectedCape = selectCape(availableCapes, userInput);
-            Set<Stratagem> selectedStratagems = selectStratagems(availableStratagems, userInput);
-            Booster selectedBooster = selectBooster(availableBoosters, userInput);  // swap place with Stratagem, in this way closer to actual in-game cycle of user choices
+//            Weapon selectedPrimary = selectWeapon("Primary Weapon", availablePrimaryWeapons, userInput);
+//            Weapon selectedSecondary = selectWeapon("Secondary Weapon", availableSecondaryWeapons, userInput);
+//            Grenade selectedGrenade = selectGrenade(availableGrenades, userInput);
+//            Armor selectedHelmet = selectArmor("Helmet", availableHelmets, userInput);
+//            Armor selectedBodyArmor = selectArmor("Body Armor", availableBodyArmor, userInput);
+            Weapon selectedPrimary = weaponManager.selectWeapon("Primary Weapon", availablePrimaryWeapons, userInput);
+            Weapon selectedSecondary = weaponManager.selectWeapon("Secondary Weapon", availableSecondaryWeapons, userInput);
+            Grenade selectedGrenade = grenadeManager.selectGrenade(availableGrenades, userInput);
+            Armor selectedHelmet = armorManager.selectArmor("Helmet", availableHelmets, userInput);
+            Armor selectedBodyArmor = armorManager.selectArmor("Body Armor", availableBodyArmor, userInput);
+            Armor selectedCape = capeManager.selectCape(availableCapes, userInput);
+            Set<Stratagem> selectedStratagems = stratagemManager.selectStratagems(availableStratagems, userInput);
+            Booster selectedBooster = boosterManager.selectBooster(availableBoosters, userInput);
 
             Loadout customLoadout = new Loadout(loadoutName, selectedPrimary, selectedSecondary, selectedGrenade, selectedHelmet, selectedBodyArmor, selectedCape, selectedBooster, selectedStratagems);
             loadouts.add(customLoadout);
 
         // ----- Choice to stop infinite loop of creating loadouts -----
-            System.out.print("\nCreate another loadout? ( Y / N ): ");
+            System.out.print("\nCreate another loadout? (Y/N): ");
             String continueChoice = userInput.nextLine();
 
             if (continueChoice.equals("Y")) {
@@ -71,7 +81,6 @@ public class LoadoutApp {
         // Update a log file of last created loadout
             String logPath = "loadouts.log";
             File logFile = new File(logPath);
-
 
             try (PrintWriter log = new PrintWriter(new FileOutputStream(logFile, true))) {
 
@@ -100,95 +109,8 @@ public class LoadoutApp {
             System.out.println("---------------------------------------------------------");
         }
 
-
-
     }
-
-    private Weapon selectWeapon(String weaponType, List<Weapon> weaponsList, Scanner scanner) {
-
-        while (true) {
-            System.out.println("\n[ " + weaponType + " Selection ]\n");
-
-        // ----- Create List of subtype names to print -----
-            System.out.println(weaponType + " types: ");
-            /* -- Using Set --> List --
-            Set<String> subTypeSet = new HashSet<>();   // temporary Set to store subType, unique means less code
-
-            for (Weapon weapon : weaponsList) {
-                subTypeSet.add(weapon.getSubType());
-            }
-
-            List<String> subTypeList = new ArrayList<>(subTypeSet);  // convert back to temporary List
-
-            for (int i = 0; i < subTypeList.size(); i++) {
-                System.out.println((i + 1) + ") " + subTypeList.get(i));
-            }
-
-            */
-        // -- Using List instead of Set to ensure original order although no errors using Set during testing --
-            List<String> subTypeList = new ArrayList<>();
-
-            for (Weapon weapon : weaponsList) {
-                if (!subTypeList.contains(weapon.getSubType())) {
-                    subTypeList.add(weapon.getSubType());
-                }
-            }
-            for (int i = 0; i < subTypeList.size(); i++) {
-                System.out.println((i + 1) + ") " + subTypeList.get(i));
-            }
-
-        // ----- User chooses a subtype -----
-            System.out.print("\nSelect a type of " + weaponType + " to view or enter '0' to reselect a type: ");
-            String subtypeSelected = scanner.nextLine();
-            int subtypeInt = Integer.parseInt(subtypeSelected);
-
-            if (subtypeInt == 0) {        // reselection
-                continue;
-            }
-
-            String selectedSubType = subTypeList.get(subtypeInt - 1);
-            System.out.println("\nAvailable " + selectedSubType + ": ");
-
-        // ----- Print available of that subtype  -----
-            System.out.println("  Name  |  Damage  |  Capacity  |  Recoil  |  Fire Rate  |  Weapon Traits");
-            System.out.println("----------------------------------------------------------------------------");
-            int weaponCount = 1;
-            for (Weapon weapon : weaponsList) {
-                if (weapon.getSubType().equals(selectedSubType)) {
-                    System.out.println(weaponCount + ") " + weapon.getName() + "  |  " + weapon.getDamage() + "  |  " + weapon.getCapacity() + "  |  " + weapon.getRecoil() + "  |  " + weapon.getFireRate() + "  |  " + weapon.getWeaponTraits());
-                    weaponCount++;
-                }
-            }
-
-        // ----- User selects of chosen subtype -----
-            System.out.print("\nSelect a " + weaponType + " or enter '0' to reselect: ");
-            String weaponSelected = scanner.nextLine();
-            int weaponSelectedInt = Integer.parseInt(weaponSelected);
-
-            if (weaponSelectedInt == 0) {
-                continue;
-            }
-            if (weaponSelectedInt < 0 || weaponSelectedInt > weaponsList.size()) {
-                System.out.println("Please enter number between 1 and " + weaponsList.size());
-                continue;
-            }
-
-        // -- Use temp counter to match with order List was printed for User --
-            int subtypeFoundCount = 1;
-            for (Weapon weapon : weaponsList) {
-                if (weapon.getSubType().equals(selectedSubType)) {
-                    if (subtypeFoundCount == weaponSelectedInt) {
-                        System.out.println(">> " + weapon.getName() + " selected <<");
-                        return weapon;
-                    }
-                    subtypeFoundCount++;
-                }
-            }
-        }
-
-    }
-
-
+/*
     private Grenade selectGrenade(List<Grenade> grenadeList, Scanner scanner) {
 
         while (true) {
@@ -264,6 +186,8 @@ public class LoadoutApp {
 
     }
 
+ */
+/*
     private Armor selectArmor(String armorType, List<Armor> armorList, Scanner scanner) {
 
         while (true) {
@@ -335,6 +259,8 @@ public class LoadoutApp {
 
     }
 
+ */
+/*
     private Armor selectCape(List<Armor> armorList, Scanner scanner) {
 
         System.out.println("\n[ Cape Selection ]\n");
@@ -355,6 +281,8 @@ public class LoadoutApp {
         return selectedCape;
     }
 
+ */
+/*
     private Booster selectBooster(List<Booster> boosterList, Scanner scanner) {
 
         System.out.println("\n[ Booster Selection ]\n");
@@ -374,23 +302,17 @@ public class LoadoutApp {
         return selectedBooster;
     }
 
+ */
+/*
     private Set<Stratagem> selectStratagems(List<Stratagem> stratagemList, Scanner scanner) {
 
         System.out.println("\n[ Stratagem Selection ]\n");
 
-        Set<Stratagem> selectedStratagemSet = new HashSet<>();  // unique Stratagem
-
+        Set<Stratagem> selectedStratagemSet = new HashSet<>();  // unique Stratagem to return
         int numberOfStratagemsSelected = 0;
 
         while (numberOfStratagemsSelected < 4) {
-        // ----- Create List of subtype names to print -----
-//            System.out.println("\nStratagem types: ");
-//            Set<String> subTypeSet = new HashSet<>();              // this section needs to repeat up to 4 times so inside while loop
-//            for (Stratagem stratagem : stratagemList) {
-//                subTypeSet.add(stratagem.getSubType());
-//            }
-//
-//            List<String> subTypeList = new ArrayList<>(subTypeSet);
+
             List<String> subTypeList = new ArrayList<>();
 
             for (Stratagem stratagem : stratagemList) {
@@ -479,7 +401,6 @@ public class LoadoutApp {
         return selectedStratagemSet;
     }
 
-
-
+ */
 
 }
