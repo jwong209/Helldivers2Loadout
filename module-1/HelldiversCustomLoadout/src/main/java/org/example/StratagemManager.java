@@ -70,7 +70,7 @@ public class StratagemManager {
                 System.out.println((i + 1) + ") " + subTypeList.get(i));
             }
 
-            // ----- User chooses a subtype -----
+        // ----- User chooses a subtype -----
             System.out.print("\nSelect a type of Stratagem enter '0' to end Stratagem selection process: ");
             String subtypeInput = scanner.nextLine();
             int subtypeInt = Integer.parseInt(subtypeInput);
@@ -86,7 +86,7 @@ public class StratagemManager {
             String selectedSubtype = subTypeList.get(subtypeInt - 1);
             System.out.println("\nAvailable " + selectedSubtype + ": ");
 
-            // ----- Print available stratagems of that subtype  -----
+        // ----- Print available stratagems of that subtype  -----
             System.out.println("  Name  |  Call-In Time  |  Uses  |  Cooldown Time  |  Stratagem Traits");
             System.out.println("--------------------------------------------------------------------------");
             int stratagemCount = 1;
@@ -97,7 +97,7 @@ public class StratagemManager {
                 }
             }
 
-            // ----- User selects stratagem of chosen subtype -----
+        // ----- User selects stratagem of chosen subtype -----
             System.out.print("\nSelect a Stratagem or enter '0' to reselect: ");
             String stratagemSelected = scanner.nextLine();
             int stratagemSelectedInt = Integer.parseInt(stratagemSelected);
@@ -110,7 +110,7 @@ public class StratagemManager {
                 continue;
             }
 
-            // -- Use temp counter to match with order stratagemList was printed for User --
+        // -- Use temp counter to match with order stratagemList was printed for User --
             Stratagem selectedStratagem = null;
             int subtypeFoundCount = 0;
 
@@ -125,7 +125,7 @@ public class StratagemManager {
                 }
             }
 
-            // -- Check if selectedStratagem Set already has it (unique) --
+        // -- Check if selectedStratagem Set already has it (unique) --
             if (selectedStratagem != null) {
                 if (selectedStratagemSet.contains(selectedStratagem)) {
                     System.out.println("\n[!] Stratagem was selected already. Please reselect. [!]");

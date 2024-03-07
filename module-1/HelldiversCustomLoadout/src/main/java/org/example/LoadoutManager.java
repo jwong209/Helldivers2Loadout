@@ -18,20 +18,21 @@ public class LoadoutManager {
         // Main Menu print options
             System.out.println("\nWelcome Super Citizen!");
             System.out.println("[ Please enter the corresponding number of your choice or appropriate letter (Y/N) when prompted. ]");
+            System.out.println("");
             System.out.println("1: Create custom loadout");
             System.out.println("2: View created loadouts");
             System.out.println("0: Quit application");
 
+        // Main Menu Selection
             try {
                 int menuSelection = promptSelection("\nSelect an option: ");
 
-                // Main Menu Selection
                 if (menuSelection == 1) {
                     loadoutApp.createLoadout();                         // Create custom loadouts
                 } else if (menuSelection == 2) {
                     viewCreatedLoadouts();                              // View created loadouts
                 } else if (menuSelection == 0) {
-                    break;
+                    break;                                              // Exit application
                 }
             } catch (NumberFormatException e) {
                 System.out.print("\nInvalid input. Please enter a number: ");

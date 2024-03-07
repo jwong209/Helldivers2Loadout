@@ -6,16 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class WeaponManager {
+public class WeaponManager  {
 
     private List<Weapon> primaryWeaponsList = new ArrayList<>();
     private List<Weapon> secondaryWeaponsList = new ArrayList<>();
 
 // ----- Constructor -----
     public WeaponManager() {
+//        super();
         loadWeapons("data/primaryWeapons", primaryWeaponsList);
         loadWeapons("data/secondaryWeapons", secondaryWeaponsList);
     }
+
 // ----- Getters  -----
     public List<Weapon> getPrimaryWeaponsList() {
         return primaryWeaponsList;
@@ -53,6 +55,20 @@ public class WeaponManager {
         }
 
     }
+
+//    @Override
+//    public void printSubtypeList() {
+//        System.out.println("  Name  |  Damage  |  Capacity  |  Recoil  |  Fire Rate  |  Weapon Traits");
+//        System.out.println("----------------------------------------------------------------------------");
+//        int itemCount = 1;
+//
+//        for (LoadoutItem loadoutItem : itemList) {
+//            if (loadoutItem.getSubType().equals(selectedSubType)) {
+//                System.out.println(itemCount + ") " + loadoutItem.getName() + "  |  " + loadoutItem.getDamage() + "  |  " + weapon.getCapacity() + "  |  " + weapon.getRecoil() + "  |  " + weapon.getFireRate() + "  |  " + weapon.getWeaponTraits());
+//                itemCount++;
+//            }
+//        }
+//    }
 
     public Weapon selectWeapon(String weaponType, List<Weapon> weaponsList, Scanner scanner) {
 
@@ -116,7 +132,7 @@ public class WeaponManager {
                     continue;
                 }
 
-                System.out.println("Warning! This line shouldn't run if input is wrong");
+//                System.out.println("Warning! This line shouldn't run if input is wrong");
 
             // -- Use temp counter to match with order List was printed for User --
                 int subtypeFoundCount = 1;
@@ -137,5 +153,6 @@ public class WeaponManager {
         }
 
     }
+
 
 }

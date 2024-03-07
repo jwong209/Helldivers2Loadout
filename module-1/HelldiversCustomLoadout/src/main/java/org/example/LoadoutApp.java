@@ -56,18 +56,7 @@ public class LoadoutApp {
             Loadout customLoadout = new Loadout(loadoutName, selectedPrimary, selectedSecondary, selectedGrenade, selectedHelmet, selectedBodyArmor, selectedCape, selectedBooster, selectedStratagems);
             loadouts.add(customLoadout);
 
-        // ----- Choice to stop infinite loop of creating loadouts -----
-            System.out.print("\nCreate another loadout? (Y/N): ");
-
-            String continueChoice = userInput.nextLine();
-
-            if (continueChoice.equals("Y")) {
-                willContinue = true;
-            } else if (continueChoice.equals("N")) {
-                willContinue = false;
-            }
-
-        // Update a log file of last created loadout
+        // ----- Update a log file of last created loadout -----
             String logPath = "loadouts.log";
             File logFile = new File(logPath);
 
@@ -85,7 +74,7 @@ public class LoadoutApp {
                 log.println("Stratagems: ");
 
                 for (Stratagem stratagem : currentLoadout.getStratagems()) {
-                    log.println("- " + stratagem.getName());
+                    log.println("-- " + stratagem.getName());
                 }
 
                 log.println("Booster: " + currentLoadout.getBooster().getName());
@@ -95,9 +84,27 @@ public class LoadoutApp {
             } catch (FileNotFoundException e) {
                 System.out.println("File not found.");
             }
-            System.out.println("---------------------------------------------------------");
-        }
 
+        // ----- Choice to stop infinite loop of creating loadouts -----
+            while(true) {
+                System.out.print("\nCreate another loadout? (Y/N): ");
+
+                String continueChoice = userInput.nextLine();
+
+                if (continueChoice.equalsIgnoreCase("Y")) {
+                    willContinue = true;
+                    break;
+                } else if (continueChoice.equalsIgnoreCase("N")) {
+                    willContinue = false;
+                    break;
+                } else {
+                    System.out.println("Invalid choice. Please enter [Y] or [N].");
+                }
+
+            }
+
+        }
+        System.out.println("---------------------------------------------------------");
     }
 
 

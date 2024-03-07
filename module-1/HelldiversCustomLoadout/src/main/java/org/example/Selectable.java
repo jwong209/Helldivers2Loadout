@@ -3,10 +3,13 @@ package org.example;
 import java.util.List;
 import java.util.Random;
 
-public interface Selectable {
+public interface Selectable<Item> {
 
 // load data
-    <T> void loadItemsList(String filePath, List<T> itemList); // public and abstract are implied
+//    <T> void loadItemsList(String filePath, List<T> itemList); // public and abstract are implied
+
+
+
 
 
 
@@ -16,14 +19,21 @@ public interface Selectable {
 
 
 
+
+
+
 // find random item from list
-    default <T> T selectRandomItem(List<T> itemList) {
+//    default <T> T selectRandomItem(List<T> itemList) {
+//
+//        Random randomGenerator = null;
+//        int itemIndex = randomGenerator.nextInt(itemList.size());
+//        return itemList.get(itemIndex);
+//
+//    }
 
-        Random randomGenerator = null;
-        int itemIndex = randomGenerator.nextInt(itemList.size());
-        return itemList.get(itemIndex);
-
-    }
+//    public default Item selectRandomItem(List<Item> itemList) {
+//
+//    }
 
 
 }

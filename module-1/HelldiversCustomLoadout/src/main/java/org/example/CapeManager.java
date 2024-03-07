@@ -15,7 +15,7 @@ public class CapeManager {
         loadCapes("data/capes", capesList);
     }
 
-    // ----- Getters -----
+// ----- Getters -----
     public List<Armor> getCapesList() {
         return capesList;
     }

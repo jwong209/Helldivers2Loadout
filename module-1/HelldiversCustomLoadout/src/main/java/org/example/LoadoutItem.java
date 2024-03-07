@@ -1,6 +1,10 @@
 package org.example;
 
-public class LoadoutItem {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public abstract class LoadoutItem {
 
     private String name;
     private String subType;
@@ -22,5 +26,7 @@ public class LoadoutItem {
     public String getSubType() {
         return subType;
     }
+
+
 
 }

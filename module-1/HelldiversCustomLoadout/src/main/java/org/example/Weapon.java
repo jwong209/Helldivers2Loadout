@@ -1,6 +1,6 @@
 package org.example;
 
-public class Weapon{
+public class Weapon {
 
     /*
     damage, capacity, recoil, fireRate all start with zero. In Java, integer literal with 0 beginning interpreted as base 8.

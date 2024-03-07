@@ -26,33 +26,6 @@ public class ArmorManager {
         return bodyArmorList;
     }
 
-// ----- Methods -----
-//    @Override
-//    public void loadItemsList(String filePath, List<Armor> armorList) {
-//        File file = new File(filePath);
-//
-//        try (Scanner scanner = new Scanner(file)) {
-//
-//            while (scanner.hasNextLine()) {
-//                String lineOfText = scanner.nextLine();
-//                String[] splitLine = lineOfText.split("\\|");
-//
-//                String name = splitLine[0];
-//                String subType = splitLine[1];
-//                String armorRating = splitLine[2];
-//                String speed = splitLine[3];
-//                String staminaRegen = splitLine[4];
-//                String armorPassive = splitLine[5];
-//                Armor currentArmor = new Armor(name, armorRating, speed, staminaRegen, armorPassive, subType);
-//
-//                armorList.add(currentArmor);
-//            }
-//
-//        } catch (FileNotFoundException e) {
-//            System.out.println("File not found: " + filePath);
-//        }
-//    }
-
     private void loadArmor(String filePath, List<Armor> armorList) {
 
         File file = new File(filePath);
@@ -164,9 +137,4 @@ public class ArmorManager {
 
     }
 
-
-//    @Override
-//    public Armor selectRandomItem(List<Armor> itemList) {
-//        return Selectable.super.selectRandomItem(itemList);
-//    }
 }
