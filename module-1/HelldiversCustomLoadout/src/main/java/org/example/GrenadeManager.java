@@ -115,11 +115,13 @@ public class GrenadeManager {
                 if (grenade.getSubType().equals(selectedSubType)) {
                     if (subtypeFoundCount == grenadeSelectInt) {
                         System.out.println(">> " + grenade.getName() + " selected <<");
+                        System.out.println("\n------------------------------------------------------------------------");
                         return grenade;
                     }
                     subtypeFoundCount++;
                 }
             }
+
         }
 
     }

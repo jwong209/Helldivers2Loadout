@@ -74,52 +74,66 @@ public class WeaponManager {
             }
 
         // ----- User chooses a subtype -----
-            System.out.print("\nSelect a type of " + weaponType + " to view or enter '0' to reselect a type: ");
+            System.out.print("\nSelect a type of " + weaponType + " or enter '0' to reselect a type: ");
             String subtypeSelected = scanner.nextLine();
-            int subtypeInt = Integer.parseInt(subtypeSelected);
 
-            if (subtypeInt == 0) {        // reselection
-                continue;
-            }
+            try {
+                int subtypeInt = Integer.parseInt(subtypeSelected);
 
-            String selectedSubType = subTypeList.get(subtypeInt - 1);
-            System.out.println("\nAvailable " + selectedSubType + ": ");
-
-        // ----- Print available of that subtype  -----
-            System.out.println("  Name  |  Damage  |  Capacity  |  Recoil  |  Fire Rate  |  Weapon Traits");
-            System.out.println("----------------------------------------------------------------------------");
-            int weaponCount = 1;
-            for (Weapon weapon : weaponsList) {
-                if (weapon.getSubType().equals(selectedSubType)) {
-                    System.out.println(weaponCount + ") " + weapon.getName() + "  |  " + weapon.getDamage() + "  |  " + weapon.getCapacity() + "  |  " + weapon.getRecoil() + "  |  " + weapon.getFireRate() + "  |  " + weapon.getWeaponTraits());
-                    weaponCount++;
+                if (subtypeInt == 0) {        // reselection
+                    continue;                 // resets options, keeps code from breaking
                 }
-            }
+                if (subtypeInt < 0 || subtypeInt > subTypeList.size()) {
+                    System.out.println("Invalid input. Please select a number between 0 and " + subTypeList.size() + ".");
+                    continue;
+                }
 
-        // ----- User selects of chosen subtype -----
-            System.out.print("\nSelect a " + weaponType + " or enter '0' to reselect: ");
-            String weaponSelected = scanner.nextLine();
-            int weaponSelectedInt = Integer.parseInt(weaponSelected);
+                String selectedSubType = subTypeList.get(subtypeInt - 1);
+                System.out.println("\nAvailable " + selectedSubType + ": ");
 
-            if (weaponSelectedInt == 0) {
-                continue;
-            }
-            if (weaponSelectedInt < 0 || weaponSelectedInt > weaponsList.size()) {
-                System.out.println("Please enter number between 1 and " + weaponsList.size());
-                continue;
-            }
+            // ----- Print available of that subtype  -----
+                System.out.println("  Name  |  Damage  |  Capacity  |  Recoil  |  Fire Rate  |  Weapon Traits");
+                System.out.println("----------------------------------------------------------------------------");
+                int weaponCount = 1;
 
-        // -- Use temp counter to match with order List was printed for User --
-            int subtypeFoundCount = 1;
-            for (Weapon weapon : weaponsList) {
-                if (weapon.getSubType().equals(selectedSubType)) {
-                    if (subtypeFoundCount == weaponSelectedInt) {
-                        System.out.println(">> " + weapon.getName() + " selected <<");
-                        return weapon;
+                for (Weapon weapon : weaponsList) {
+                    if (weapon.getSubType().equals(selectedSubType)) {
+                        System.out.println(weaponCount + ") " + weapon.getName() + "  |  " + weapon.getDamage() + "  |  " + weapon.getCapacity() + "  |  " + weapon.getRecoil() + "  |  " + weapon.getFireRate() + "  |  " + weapon.getWeaponTraits());
+                        weaponCount++;
                     }
-                    subtypeFoundCount++;
                 }
+
+            // ----- User selects of chosen subtype -----
+                System.out.print("\nSelect a " + weaponType + " or enter '0' to reselect: ");
+                String weaponSelected = scanner.nextLine();
+                int weaponSelectedInt = Integer.parseInt(weaponSelected);
+
+                if (weaponSelectedInt == 0) {
+                    continue;
+                }
+                if (weaponSelectedInt < 0 || weaponSelectedInt > weaponsList.size()) {
+                    System.out.println("Invalid input. Please enter number between 1 and " + weaponsList.size() + ".");
+                    continue;
+                }
+
+                System.out.println("Warning! This line shouldn't run if input is wrong");
+
+            // -- Use temp counter to match with order List was printed for User --
+                int subtypeFoundCount = 1;
+                for (Weapon weapon : weaponsList) {
+                    if (weapon.getSubType().equals(selectedSubType)) {
+                        if (subtypeFoundCount == weaponSelectedInt) {
+                            System.out.println(">> " + weapon.getName() + " selected <<");
+                            System.out.println("\n------------------------------------------------------------------------");
+                            return weapon;
+                        }
+                        subtypeFoundCount++;
+                    }
+                }
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid input. Please enter a number.\n");
             }
+
         }
 
     }

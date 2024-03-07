@@ -12,18 +12,17 @@ public class CapeManager {
 
 // ----- Constructor -----
     public CapeManager() {
-        loadCapes();
+        loadCapes("data/capes", capesList);
     }
 
-// ----- Getters -----
+    // ----- Getters -----
     public List<Armor> getCapesList() {
         return capesList;
     }
 
 // ----- Methods -----
-    private void loadCapes() {
+    private void loadCapes(String filePath, List<Armor> capesList) {
 
-        String filePath = "data/capes";
         File file = new File(filePath);
 
         try (Scanner scanner = new Scanner(file)) {
@@ -66,7 +65,10 @@ public class CapeManager {
 
         Armor selectedCape = armorList.get(selectionInt - 1);
         System.out.println(">> " + selectedCape.getName() + " selected <<");
+
+        System.out.println("\n------------------------------------------------------------------------");
         return selectedCape;
+
     }
 
 }

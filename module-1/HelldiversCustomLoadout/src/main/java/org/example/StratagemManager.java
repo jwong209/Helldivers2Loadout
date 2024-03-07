@@ -50,7 +50,7 @@ public class StratagemManager {
 
     public Set<Stratagem> selectStratagems(List<Stratagem> stratagemList, Scanner scanner) {
 
-        System.out.println("\n[ Stratagem Selection ]\n");
+        System.out.println("\n[ Stratagem Selection ]");
 
         Set<Stratagem> selectedStratagemSet = new HashSet<>();  // unique Stratagem to return
         int numberOfStratagemsSelected = 0;
@@ -65,13 +65,13 @@ public class StratagemManager {
                 }
             }
 
-            System.out.println("Stratagem types: ");
+            System.out.println("\nStratagem types: ");
             for (int i = 0; i < subTypeList.size(); i++) {
                 System.out.println((i + 1) + ") " + subTypeList.get(i));
             }
 
             // ----- User chooses a subtype -----
-            System.out.println("\nSelect a type of Stratagem enter '0' to end Stratagem selection process: ");
+            System.out.print("\nSelect a type of Stratagem enter '0' to end Stratagem selection process: ");
             String subtypeInput = scanner.nextLine();
             int subtypeInt = Integer.parseInt(subtypeInput);
 
@@ -79,7 +79,7 @@ public class StratagemManager {
                 break;
             }
             if (subtypeInt < 0 || subtypeInt > subTypeList.size()) {
-                System.out.println("Please enter number between 1 and " + subTypeList.size());
+                System.out.println("Invalid input. Please enter number between 1 and " + subTypeList.size());
                 continue;
             }
 
@@ -106,7 +106,7 @@ public class StratagemManager {
                 continue;
             }
             if (stratagemSelectedInt < 0 || stratagemSelectedInt > stratagemList.size()) {
-                System.out.println("Please enter number between 1 and " + stratagemList.size());
+                System.out.println("Invalid input. Please enter number between 1 and " + stratagemList.size());
                 continue;
             }
 

@@ -22,16 +22,21 @@ public class LoadoutManager {
             System.out.println("2: View created loadouts");
             System.out.println("0: Quit application");
 
-            int menuSelection = promptSelection("\nSelect an option: ");
+            try {
+                int menuSelection = promptSelection("\nSelect an option: ");
 
-        // Main Menu Selection
-            if (menuSelection == 1) {
-                loadoutApp.createLoadout();
-            } else if (menuSelection == 2) {
-                viewCreatedLoadouts(); // View created loadouts
-            } else if (menuSelection == 0) {
-                break;
+                // Main Menu Selection
+                if (menuSelection == 1) {
+                    loadoutApp.createLoadout();                         // Create custom loadouts
+                } else if (menuSelection == 2) {
+                    viewCreatedLoadouts();                              // View created loadouts
+                } else if (menuSelection == 0) {
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.print("\nInvalid input. Please enter a number: ");
             }
+
         }
 
     }

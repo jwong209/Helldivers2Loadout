@@ -61,6 +61,8 @@ public class BoosterManager {
 
         Booster selectedBooster = boosterList.get(selectionInt - 1);
         System.out.println(">> " +selectedBooster.getName() + " selected <<");
+
+        System.out.println("\n------------------------------------------------------------------------");
         return selectedBooster;
     }
 
