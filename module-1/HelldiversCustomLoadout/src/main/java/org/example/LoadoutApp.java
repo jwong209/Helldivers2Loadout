@@ -87,7 +87,7 @@ public class LoadoutApp {
 
         // ----- Choice to stop infinite loop of creating loadouts -----
             while(true) {
-                System.out.print("\nCreate another loadout? (Y/N): ");
+                System.out.println("\nCreate another loadout?  Yes [Y]  No [N]: ");
 
                 String continueChoice = userInput.nextLine();
 
@@ -98,9 +98,8 @@ public class LoadoutApp {
                     willContinue = false;
                     break;
                 } else {
-                    System.out.println("Invalid choice. Please enter [Y] or [N].");
+                    System.out.println("Invalid choice. Please enter Yes [Y] or [N].");
                 }
-
             }
 
         }

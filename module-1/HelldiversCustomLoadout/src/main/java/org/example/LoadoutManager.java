@@ -19,9 +19,9 @@ public class LoadoutManager {
             System.out.println("\nWelcome Super Citizen!");
             System.out.println("[ Please enter the corresponding number of your choice or appropriate letter (Y/N) when prompted. ]");
             System.out.println("");
-            System.out.println("1: Create custom loadout");
-            System.out.println("2: View created loadouts");
-            System.out.println("0: Quit application");
+            System.out.println("1) Create custom loadout");
+            System.out.println("2) View created loadouts");
+            System.out.println("0) Quit application");
 
         // Main Menu Selection
             try {

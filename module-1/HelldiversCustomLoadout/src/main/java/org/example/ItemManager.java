@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public abstract class ItemManager {
+
+    // ----- Constructor -----
     public ItemManager() {
     }
 

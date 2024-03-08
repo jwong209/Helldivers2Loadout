@@ -70,78 +70,82 @@ public class StratagemManager {
                 System.out.println((i + 1) + ") " + subTypeList.get(i));
             }
 
-        // ----- User chooses a subtype -----
-            System.out.print("\nSelect a type of Stratagem enter '0' to end Stratagem selection process: ");
-            String subtypeInput = scanner.nextLine();
-            int subtypeInt = Integer.parseInt(subtypeInput);
+            try {
+            // ----- User chooses a subtype -----
+                System.out.print("\nSelect a type of Stratagem or enter '0' to end Stratagem selection process: ");
+                String subtypeInput = scanner.nextLine();
+                int subtypeInt = Integer.parseInt(subtypeInput);
 
-            if (subtypeInt == 0) {
-                break;
-            }
-            if (subtypeInt < 0 || subtypeInt > subTypeList.size()) {
-                System.out.println("Invalid input. Please enter number between 1 and " + subTypeList.size());
-                continue;
-            }
-
-            String selectedSubtype = subTypeList.get(subtypeInt - 1);
-            System.out.println("\nAvailable " + selectedSubtype + ": ");
-
-        // ----- Print available stratagems of that subtype  -----
-            System.out.println("  Name  |  Call-In Time  |  Uses  |  Cooldown Time  |  Stratagem Traits");
-            System.out.println("--------------------------------------------------------------------------");
-            int stratagemCount = 1;
-            for (Stratagem stratagem: stratagemList) {
-                if (stratagem.getSubType().equals(selectedSubtype)) {
-                    System.out.println(stratagemCount + ") " + stratagem.getName() + "  |  " + stratagem.getCallInTime() + "  |  " + stratagem.getUses() + "  |  " + stratagem.getCooldownTime() + "  |  " + stratagem.getStratagemTraits());
-                    stratagemCount++;
+                if (subtypeInt == 0) {
+                    break;
                 }
-            }
+                if (subtypeInt < 0 || subtypeInt > subTypeList.size()) {
+                    System.out.println("Invalid input. Please enter number between 1 and " + subTypeList.size());
+                    continue;
+                }
 
-        // ----- User selects stratagem of chosen subtype -----
-            System.out.print("\nSelect a Stratagem or enter '0' to reselect: ");
-            String stratagemSelected = scanner.nextLine();
-            int stratagemSelectedInt = Integer.parseInt(stratagemSelected);
+                String selectedSubtype = subTypeList.get(subtypeInt - 1);
 
-            if (stratagemSelectedInt == 0) {
-                continue;
-            }
-            if (stratagemSelectedInt < 0 || stratagemSelectedInt > stratagemList.size()) {
-                System.out.println("Invalid input. Please enter number between 1 and " + stratagemList.size());
-                continue;
-            }
-
-        // -- Use temp counter to match with order stratagemList was printed for User --
-            Stratagem selectedStratagem = null;
-            int subtypeFoundCount = 0;
-
-            for (Stratagem stratagem : stratagemList) {
-                if (stratagem.getSubType().equals(selectedSubtype)) { // condition 1 --> match subtype name
-                    subtypeFoundCount++;
-                    if (subtypeFoundCount == stratagemSelectedInt) {   // condition 2 --> count matches what user entered
-                        selectedStratagem = stratagem;
-                        System.out.println(">> " + selectedStratagem.getName() + " selected <<");
-//                        break;
+            // ----- Print available stratagems of that subtype  -----
+                System.out.println("\n" + selectedSubtype + " choices: ");
+                System.out.println("  Name  |  Call-In Time  |  Uses  |  Cooldown Time  |  Stratagem Traits");
+                System.out.println("--------------------------------------------------------------------------");
+                int stratagemCount = 1;
+                for (Stratagem stratagem: stratagemList) {
+                    if (stratagem.getSubType().equals(selectedSubtype)) {
+                        System.out.println(stratagemCount + ") " + stratagem.getName() + "  |  " + stratagem.getCallInTime() + "  |  " + stratagem.getUses() + "  |  " + stratagem.getCooldownTime() + "  |  " + stratagem.getStratagemTraits());
+                        stratagemCount++;
                     }
                 }
-            }
 
-        // -- Check if selectedStratagem Set already has it (unique) --
-            if (selectedStratagem != null) {
-                if (selectedStratagemSet.contains(selectedStratagem)) {
-                    System.out.println("\n[!] Stratagem was selected already. Please reselect. [!]");
-                } else {
-                    selectedStratagemSet.add(selectedStratagem);
-                    numberOfStratagemsSelected++;
+            // ----- User selects stratagem of chosen subtype -----
+                System.out.print("\nSelect a Stratagem or enter '0' to reselect: ");
+                String stratagemSelected = scanner.nextLine();
+                int stratagemSelectedInt = Integer.parseInt(stratagemSelected);
+
+                if (stratagemSelectedInt == 0) {
+                    continue;
                 }
+                if (stratagemSelectedInt < 0 || stratagemSelectedInt > (stratagemCount - 1)) {
+                    System.out.println("Invalid input. Please enter number between 1 and " + (stratagemCount - 1));
+                    continue;
+                }
+
+            // -- Use temp counter to match with order stratagemList was printed for User --
+                Stratagem selectedStratagem = null;
+                int subtypeFoundCount = 0;
+
+                for (Stratagem stratagem : stratagemList) {
+                    if (stratagem.getSubType().equals(selectedSubtype)) { // condition 1 --> match subtype name
+                        subtypeFoundCount++;
+                        if (subtypeFoundCount == stratagemSelectedInt) {   // condition 2 --> count matches what user entered
+                            selectedStratagem = stratagem;
+                            System.out.println(">> " + selectedStratagem.getName() + " selected <<");
+                        }
+                    }
+                }
+
+            // -- Check if selectedStratagem Set already has it (unique) --
+                if (selectedStratagem != null) {
+                    if (selectedStratagemSet.contains(selectedStratagem)) {
+                        System.out.println("\n[!] Stratagem was selected already. Please reselect. [!]");
+                    } else {
+                        selectedStratagemSet.add(selectedStratagem);
+                        numberOfStratagemsSelected++;
+                    }
+                }
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid input. Please enter a number.\n");
             }
 
         }
-        // -- Confirmation of selection --
+        // -- Print all stratagems selected --
         System.out.println("\nStratagems selected: ");
         for (Stratagem stratagem : selectedStratagemSet) {
-            System.out.println(stratagem.getName());
+            System.out.println(">> " + stratagem.getName() + " <<");
         }
 
+        System.out.println("\n------------------------------------------------------------------------");
         return selectedStratagemSet;
     }
 }

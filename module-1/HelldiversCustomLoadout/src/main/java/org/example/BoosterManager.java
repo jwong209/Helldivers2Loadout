@@ -47,23 +47,41 @@ public class BoosterManager {
 
     public Booster selectBooster(List<Booster> boosterList, Scanner scanner) {
 
-        System.out.println("\n[ Booster Selection ]\n");
+        while (true) {
+            System.out.println("\n[ Booster Selection ]\n");
 
-        System.out.println("  Name  |  Benefit");
-        System.out.println("---------------------");
-        for (int i = 0; i < boosterList.size(); i++) {
-            System.out.println((i + 1) + ") " + boosterList.get(i).getName() + "  |  " + boosterList.get(i).getBenefit());
+            System.out.println("Booster choices: ");
+            System.out.println("  Name  |  Benefit");
+            System.out.println("---------------------");
+
+            for (int i = 0; i < boosterList.size(); i++) {
+                System.out.println((i + 1) + ") " + boosterList.get(i).getName() + "  |  " + boosterList.get(i).getBenefit());
+            }
+
+            try {
+                System.out.print("\nSelect a Booster: ");
+                String selectionString = scanner.nextLine();
+                int selectionInt = Integer.parseInt(selectionString);
+
+                if (selectionInt == 0) {
+                    continue;
+                }
+                if (selectionInt < 0 || selectionInt > boosterList.size()) {
+                    System.out.println("Invalid input. Please select a number between 1 and " + boosterList.size() + ".");
+                    continue;
+                }
+
+                Booster selectedBooster = boosterList.get(selectionInt - 1);
+                System.out.println(">> " +selectedBooster.getName() + " selected <<");
+
+                System.out.println("\n------------------------------------------------------------------------");
+                return selectedBooster;
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid input. Please enter a number.\n");
+            }
+
         }
 
-        System.out.print("\nSelect a Booster: ");
-        String selectionString = scanner.nextLine();
-        int selectionInt = Integer.parseInt(selectionString);
-
-        Booster selectedBooster = boosterList.get(selectionInt - 1);
-        System.out.println(">> " +selectedBooster.getName() + " selected <<");
-
-        System.out.println("\n------------------------------------------------------------------------");
-        return selectedBooster;
     }
 
 }

@@ -83,14 +83,14 @@ public class ArmorManager {
                     continue;
                 }
                 if (subtypeInt < 0 || subtypeInt > subTypeList.size()) {
-                    System.out.println("Invalid input. Please select a number between 0 and " + subTypeList.size() + ".");
+                    System.out.println("Invalid input. Please select a number between 1 and " + subTypeList.size() + ".");
                     continue;
                 }
 
                 String selectedSubType = subTypeList.get(subtypeInt - 1);
-                System.out.println("\nAvailable " + selectedSubType);
 
             // ----- Print available of that subtype  -----
+                System.out.println("\n" + armorType + " - " + selectedSubType + " choices: ");
                 System.out.println("  Name  |  Armor Rating  |  Speed  |  Stamina Regen  |  Armor Passive");
                 System.out.println("------------------------------------------------------------------------");
 
@@ -111,8 +111,8 @@ public class ArmorManager {
                 if (armorSelectedInt == 0) {
                     continue;
                 }
-                if (armorSelectedInt < 0 || armorSelectedInt > armorList.size()) {
-                    System.out.println("Invalid input. Please enter number between 1 and " + armorList.size() + ".");
+                if (armorSelectedInt < 0 || armorSelectedInt > (armorCount - 1)) {
+                    System.out.println("Invalid input. Please enter number between 1 and " + (armorCount - 1) + ".");
                     continue;
                 }
 

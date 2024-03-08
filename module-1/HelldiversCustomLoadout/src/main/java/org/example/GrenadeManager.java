@@ -82,9 +82,9 @@ public class GrenadeManager {
             }
 
             String selectedSubType = subTypeList.get(subtypeInt - 1);
-            System.out.println("\nAvailable " + selectedSubType);
 
             // ----- Print available of that subtype  -----
+            System.out.println("\n" + selectedSubType + " choices: ");
             System.out.println("  Name  |  Damage  |  Penetration  |  Outer Radius  |  Fuse Time");
             System.out.println("-------------------------------------------------------------------");
 
@@ -104,8 +104,8 @@ public class GrenadeManager {
             if (grenadeSelectInt == 0) {
                 continue;
             }
-            if (grenadeSelectInt < 0 || grenadeSelectInt > grenadeList.size()) {
-                System.out.println("Please enter number between 1 and " + grenadeList.size());
+            if (grenadeSelectInt < 0 || grenadeSelectInt > (grenadeCount - 1)) {
+                System.out.println("Please enter number between 1 and " + (grenadeCount - 1));
                 continue;
             }
 

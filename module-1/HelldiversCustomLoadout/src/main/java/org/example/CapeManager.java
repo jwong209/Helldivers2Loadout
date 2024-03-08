@@ -50,24 +50,42 @@ public class CapeManager {
 
     public Armor selectCape(List<Armor> armorList, Scanner scanner) {
 
-        System.out.println("\n[ Cape Selection ]\n");
+        while (true) {
+            System.out.println("\n[ Cape Selection ]\n");
 
-        System.out.println("  Name  |  Armor Rating  |  Speed  |  Stamina Regen  |  Armor Passive");
-        System.out.println("------------------------------------------------------------------------");
+            System.out.println("Cape choices: ");
+            System.out.println("  Name  |  Armor Rating  |  Speed  |  Stamina Regen  |  Armor Passive");
+            System.out.println("------------------------------------------------------------------------");
 
-        for (int i = 0; i < armorList.size(); i++) {
-            System.out.println((i + 1) + ") " + armorList.get(i).getName() + "  |  " + armorList.get(i).getArmorRating() + "  |  " + armorList.get(i).getSpeed() + "  |  " + armorList.get(i).getStaminaRegen() + "  |  " + armorList.get(i).getArmorPassive());
+            for (int i = 0; i < armorList.size(); i++) {
+                System.out.println((i + 1) + ") " + armorList.get(i).getName() + "  |  " + armorList.get(i).getArmorRating() + "  |  " + armorList.get(i).getSpeed() + "  |  " + armorList.get(i).getStaminaRegen() + "  |  " + armorList.get(i).getArmorPassive());
+            }
+
+            try {
+                System.out.print("\nSelect a Cape: ");
+                String selectionString = scanner.nextLine();
+                int selectionInt = Integer.parseInt(selectionString);
+
+                if (selectionInt == 0) {
+                    continue;
+                }
+                if (selectionInt < 0 || selectionInt > armorList.size()) {
+                    System.out.println("Invalid input. Please select a number between 1 and " + armorList.size() + ".");
+                    continue;
+                }
+
+                Armor selectedCape = armorList.get(selectionInt - 1);
+                System.out.println(">> " + selectedCape.getName() + " selected <<");
+
+                System.out.println("\n------------------------------------------------------------------------");
+                return selectedCape;
+            } catch (NumberFormatException e) {
+                System.out.print("Invalid input. Please enter a number.\n");
+            }
+
         }
 
-        System.out.print("\nSelect a Cape: ");
-        String selectionString = scanner.nextLine();
-        int selectionInt = Integer.parseInt(selectionString);
 
-        Armor selectedCape = armorList.get(selectionInt - 1);
-        System.out.println(">> " + selectedCape.getName() + " selected <<");
-
-        System.out.println("\n------------------------------------------------------------------------");
-        return selectedCape;
 
     }
 
