@@ -1,6 +1,4 @@
-package org.example;
-
-import java.util.List;
+package org.helldivers2.controller;
 
 
 public interface Randomizer<T> {

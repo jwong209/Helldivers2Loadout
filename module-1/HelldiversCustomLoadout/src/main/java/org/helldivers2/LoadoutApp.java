@@ -1,4 +1,7 @@
-package org.example;
+package org.helldivers2;
+
+import org.helldivers2.controller.*;
+import org.helldivers2.model.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -87,7 +90,7 @@ public class LoadoutApp {
 
         // ----- Choice to stop infinite loop of creating loadouts -----
             while(true) {
-                System.out.println("\nCreate another loadout?  Yes [Y]  No [N]: ");
+                System.out.print("\nCreate another loadout?  Yes [Y]  No [N]: ");
 
                 String continueChoice = userInput.nextLine();
 
@@ -98,7 +101,7 @@ public class LoadoutApp {
                     willContinue = false;
                     break;
                 } else {
-                    System.out.println("Invalid choice. Please enter Yes [Y] or [N].");
+                    System.out.print("[!] Invalid choice. Please enter Yes [Y] or [N].");
                 }
             }
 

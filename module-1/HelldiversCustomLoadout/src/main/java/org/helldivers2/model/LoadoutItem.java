@@ -1,8 +1,4 @@
-package org.example;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+package org.helldivers2.model;
 
 public abstract class LoadoutItem {
 

@@ -1,4 +1,4 @@
-package org.example;
+package org.helldivers2.model;
 
 public class Stratagem {
 

@@ -1,4 +1,8 @@
-package org.example;
+package org.helldivers2;
+
+import org.helldivers2.model.Loadout;
+import org.helldivers2.LoadoutApp;
+import org.helldivers2.model.Stratagem;
 
 import java.util.Scanner;
 
@@ -35,7 +39,7 @@ public class LoadoutManager {
                     break;                                              // Exit application
                 }
             } catch (NumberFormatException e) {
-                System.out.print("\nInvalid input. Please enter a number: ");
+                System.out.print("\n[!] Invalid input. Please enter a number: ");
             }
 
         }
@@ -50,7 +54,7 @@ public class LoadoutManager {
                 userSelection = Integer.parseInt(userInput.nextLine());
                 return userSelection;
             } catch (NumberFormatException e) {
-                System.out.print("\nInvalid input. Please enter a number: ");
+                System.out.print("\n[!] Invalid input. Please enter a number: ");
             }
         }
 
@@ -58,7 +62,7 @@ public class LoadoutManager {
 
     private static void viewCreatedLoadouts() {
 
-        if (loadoutApp.getLoadouts().size() == 0) {                                           // If no loadouts created or in list
+        if (loadoutApp.getLoadouts().size() == 0) {                    // If no loadouts created or in list
             System.out.println("\nNo loadouts currently exist. Please select [1] from the main menu to create a loadout.");
         } else {
             for (Loadout loadout : loadoutApp.getLoadouts()) {

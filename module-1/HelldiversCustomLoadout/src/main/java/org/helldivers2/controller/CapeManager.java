@@ -1,4 +1,6 @@
-package org.example;
+package org.helldivers2.controller;
+
+import org.helldivers2.model.Armor;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -70,7 +72,7 @@ public class CapeManager {
                     continue;
                 }
                 if (selectionInt < 0 || selectionInt > armorList.size()) {
-                    System.out.println("Invalid input. Please select a number between 1 and " + armorList.size() + ".");
+                    System.out.println("[!] Invalid input. Please select a number between 1 and " + armorList.size() + ".");
                     continue;
                 }
 
@@ -80,7 +82,7 @@ public class CapeManager {
                 System.out.println("\n------------------------------------------------------------------------");
                 return selectedCape;
             } catch (NumberFormatException e) {
-                System.out.print("Invalid input. Please enter a number.\n");
+                System.out.print("[!] Invalid input. Please enter a number.\n");
             }
 
         }

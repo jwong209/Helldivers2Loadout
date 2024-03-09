@@ -1,4 +1,6 @@
-package org.example;
+package org.helldivers2.controller;
+
+import org.helldivers2.model.Booster;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -67,7 +69,7 @@ public class BoosterManager {
                     continue;
                 }
                 if (selectionInt < 0 || selectionInt > boosterList.size()) {
-                    System.out.println("Invalid input. Please select a number between 1 and " + boosterList.size() + ".");
+                    System.out.println("[!] Invalid input. Please select a number between 1 and " + boosterList.size() + ".");
                     continue;
                 }
 
@@ -77,7 +79,7 @@ public class BoosterManager {
                 System.out.println("\n------------------------------------------------------------------------");
                 return selectedBooster;
             } catch (NumberFormatException e) {
-                System.out.print("Invalid input. Please enter a number.\n");
+                System.out.print("[!] Invalid input. Please enter a number.\n");
             }
 
         }

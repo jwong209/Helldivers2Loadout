@@ -1,4 +1,6 @@
-package org.example;
+package org.helldivers2.controller;
+
+import org.helldivers2.model.Armor;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -83,7 +85,7 @@ public class ArmorManager {
                     continue;
                 }
                 if (subtypeInt < 0 || subtypeInt > subTypeList.size()) {
-                    System.out.println("Invalid input. Please select a number between 1 and " + subTypeList.size() + ".");
+                    System.out.println("[!] Invalid input. Please select a number between 1 and " + subTypeList.size() + ".");
                     continue;
                 }
 
@@ -104,7 +106,7 @@ public class ArmorManager {
 
 
             // ----- User selects of chosen subtype -----
-                System.out.println("\nSelect a " + armorType + " or enter '0' to reselect: ");
+                System.out.print("\nSelect a " + armorType + " or enter '0' to reselect: ");
                 String armorSelected = scanner.nextLine();
                 int armorSelectedInt = Integer.parseInt(armorSelected);
 
@@ -112,7 +114,7 @@ public class ArmorManager {
                     continue;
                 }
                 if (armorSelectedInt < 0 || armorSelectedInt > (armorCount - 1)) {
-                    System.out.println("Invalid input. Please enter number between 1 and " + (armorCount - 1) + ".");
+                    System.out.println("[!] Invalid input. Please enter number between 1 and " + (armorCount - 1) + ".");
                     continue;
                 }
 
@@ -129,7 +131,7 @@ public class ArmorManager {
                     }
                 }
             } catch (NumberFormatException e) {
-                System.out.print("Invalid input. Please enter a number.\n");
+                System.out.print("[!] Invalid input. Please enter a number.\n");
             }
 
         }

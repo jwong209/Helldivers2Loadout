@@ -1,4 +1,7 @@
-package org.example;
+package org.helldivers2.controller;
+
+import org.helldivers2.model.LoadoutItem;
+import org.helldivers2.model.Weapon;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -17,7 +20,7 @@ public class WeaponManager {
         loadWeapons("data/secondaryWeapons", secondaryWeaponsList);
     }
 
-// ----- Getters  -----
+    // ----- Getters  -----
     public List<Weapon> getPrimaryWeaponsList() {
         return primaryWeaponsList;
     }
@@ -54,7 +57,6 @@ public class WeaponManager {
         }
 
     }
-
     public Weapon selectWeapon(String weaponType, List<Weapon> weaponsList, Scanner scanner) {
 
         while (true) {
@@ -85,7 +87,7 @@ public class WeaponManager {
                     continue;                 // resets options
                 }
                 if (subtypeInt < 0 || subtypeInt > subTypeList.size()) {
-                    System.out.println("Invalid input. Please select a number between 1 and " + subTypeList.size() + ".");
+                    System.out.println("[!] Invalid input. Please select a number between 1 and " + subTypeList.size() + ".");
                     continue;
                 }
 
@@ -113,11 +115,9 @@ public class WeaponManager {
                     continue;
                 }
                 if (weaponSelectedInt < 0 || weaponSelectedInt > (weaponCount - 1)) {
-                    System.out.println("Invalid input. Please enter number between 1 and " + (weaponCount - 1) + ".");
+                    System.out.println("[!] Invalid input. Please enter number between 1 and " + (weaponCount - 1) + ".");
                     continue;
                 }
-
-//                System.out.println("Warning! This line shouldn't run if user input is wrong"); //debug
 
             // -- Use temp counter to match with order List was printed for User --
                 int subtypeFoundCount = 1;
@@ -132,12 +132,28 @@ public class WeaponManager {
                     }
                 }
             } catch (NumberFormatException e) {
-                System.out.print("Invalid input. Please enter a number.\n");
+                System.out.print("[!] Invalid input. Please enter a number.\n");
             }
 
         }
 
     }
 
+
+//    @Override
+//    public void printSubtypeList(List<LoadoutItem> itemList, String itemType, String selectedSubType) {
+//        System.out.println("\n" + itemType + " - " + selectedSubType + " choices: ");
+//        System.out.println("  Name  |  Damage  |  Capacity  |  Recoil  |  Fire Rate  |  Weapon Traits");
+//        System.out.println("----------------------------------------------------------------------------");
+//        int weaponCount = 1;
+//
+//        for (LoadoutItem loadoutItem : itemList) {
+//            if (loadoutItem.getSubType().equals(selectedSubType)) {
+//                Weapon weapon = (Weapon) loadoutItem;
+//                System.out.println(weaponCount + ") " + weapon.getName() + "  |  " + weapon.getDamage() + "  |  " + weapon.getCapacity() + "  |  " + weapon.getRecoil() + "  |  " + weapon.getFireRate() + "  |  " + weapon.getWeaponTraits());
+//                weaponCount++;
+//            }
+//        }
+//    }
 
 }

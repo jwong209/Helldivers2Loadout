@@ -1,4 +1,6 @@
-package org.example;
+package org.helldivers2.controller;
+
+import org.helldivers2.model.Stratagem;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -80,7 +82,7 @@ public class StratagemManager {
                     break;
                 }
                 if (subtypeInt < 0 || subtypeInt > subTypeList.size()) {
-                    System.out.println("Invalid input. Please enter number between 1 and " + subTypeList.size());
+                    System.out.println("[!] Invalid input. Please enter number between 1 and " + subTypeList.size());
                     continue;
                 }
 
@@ -107,7 +109,7 @@ public class StratagemManager {
                     continue;
                 }
                 if (stratagemSelectedInt < 0 || stratagemSelectedInt > (stratagemCount - 1)) {
-                    System.out.println("Invalid input. Please enter number between 1 and " + (stratagemCount - 1));
+                    System.out.println("[!] Invalid input. Please enter number between 1 and " + (stratagemCount - 1));
                     continue;
                 }
 
@@ -128,14 +130,14 @@ public class StratagemManager {
             // -- Check if selectedStratagem Set already has it (unique) --
                 if (selectedStratagem != null) {
                     if (selectedStratagemSet.contains(selectedStratagem)) {
-                        System.out.println("\n[!] Stratagem was selected already. Please reselect. [!]");
+                        System.out.println("\n[!] Stratagem was selected already. Please reselect.");
                     } else {
                         selectedStratagemSet.add(selectedStratagem);
                         numberOfStratagemsSelected++;
                     }
                 }
             } catch (NumberFormatException e) {
-                System.out.print("Invalid input. Please enter a number.\n");
+                System.out.print("[!] Invalid input. Please enter a number.\n");
             }
 
         }

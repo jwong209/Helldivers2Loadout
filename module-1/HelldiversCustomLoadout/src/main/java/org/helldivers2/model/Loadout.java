@@ -1,6 +1,7 @@
-package org.example;
+package org.helldivers2.model;
 
-import java.util.List;
+import org.helldivers2.model.*;
+
 import java.util.Set;
 
 public class Loadout {
