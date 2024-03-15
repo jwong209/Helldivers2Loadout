@@ -31,6 +31,11 @@ SELECT state_name, sales_tax
 FROM state
 WHERE sales_tax >= 2.0
 AND sales_tax <= 5.0;
+
+SELECT park_name, date_established
+FROM park
+WHERE date_established BETWEEN '1960-01-01' AND '1969-12-31';
+
 SELECT city_name, population
 FROM city
 WHERE state_abbreviation = 'CA' AND population < 150000;
