@@ -84,3 +84,9 @@ SELECT state_abbreviation, MAX(population) AS city_population
 FROM city
 GROUP BY state_abbreviation
 ORDER BY city_population DESC;
+
+SELECT census_region, AVG(population) AS average_population, MIN(population) AS min_population, MAX(population) AS max_population
+FROM state
+WHERE census_region IS NOT NULL
+GROUP BY census_region
+ORDER BY average_population ASC, min_population ASC, max_population ASC;
