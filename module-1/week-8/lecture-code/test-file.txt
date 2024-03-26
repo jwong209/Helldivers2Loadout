@@ -1,3 +1,0 @@
-Hello class!
-How's is file IO going?
-This is some appended text
